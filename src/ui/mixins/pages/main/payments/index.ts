@@ -1,3 +1,9 @@
 import { initSlider } from '@/utils'
 
-initSlider(`#payments-cards`, { perView: 2 })
+initSlider(`#payments-cards`, {
+	breakpoints: {
+		768: {
+			perView: 2,
+		},
+	},
+})
