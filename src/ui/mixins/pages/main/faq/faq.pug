@@ -56,16 +56,16 @@ mixin faq(containerClass)
 									data-question=index
 								)
 									.flex.items-start.justify-between.cursor-pointer
-										p.question-title.text-base(class=`${index === 0 ? 'font-semibold' : ''}`) 
+										p.question-title.text-base(class=`basis-4/5 ${index === 0 ? 'font-semibold' : ''}`) 
 											| #{ question.title }
 
 										if (index === 0)
-											.arrow-wrapper.text-white.-rotate-90.duration-200(class='md:rotate-0')
-												+moreBlock('', 'primary')
+											.arrow-wrapper.text-white.-rotate-90.duration-200(class='md:rotate-0 basis-1/5')
+												+moreBlock({ background: 'primary', modificator: 'justify-end' })
 
 										else
-											.arrow-wrapper.text-grizzly-dark.rotate-90.duration-200(class='md:rotate-0')
-												+moreBlock
+											.arrow-wrapper.text-grizzly-dark.rotate-90.duration-200(class='md:rotate-0 basis-1/5')
+												+moreBlock({ modificator: 'justify-end' })
 
 									div(class='md:hidden')
 										p.question-mobile-content.text-base.mt-4(class=`${index !== 0 ? 'hidden' : ''}`)

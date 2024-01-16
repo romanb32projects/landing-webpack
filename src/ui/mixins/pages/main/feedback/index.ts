@@ -9,7 +9,8 @@ const setRating = (stars: NodeListOf<Element>, rating: number) => {
 	if (currentRating < 1) {
 		// is clear
 		for (let i = currentRating; i < stars.length; ++i) {
-			stars[i].classList.toggle(classInactive)
+			const star = stars[i].querySelector('.star')
+			star?.classList.toggle(classInactive)
 		}
 
 		return
@@ -21,9 +22,9 @@ const setRating = (stars: NodeListOf<Element>, rating: number) => {
 
 	// set active stars before currentRating
 	for (let i = 0; i < currentRating; i++) {
-		const star = stars[i]
+		const star = stars[i].querySelector('.star')
 
-		if (!star.classList.contains(classActive)) {
+		if (!star?.classList.contains(classActive)) {
 			star.classList.toggle(classInactive)
 			star.classList.toggle(classActive)
 		}
@@ -31,9 +32,9 @@ const setRating = (stars: NodeListOf<Element>, rating: number) => {
 
 	// set inactive stars after currentRating
 	for (let i = currentRating; i < stars.length; i++) {
-		const star = stars[i]
+		const star = stars[i].querySelector('.star')
 
-		if (star.classList.contains(classActive)) {
+		if (star?.classList.contains(classActive)) {
 			star.classList.toggle(classInactive)
 			star.classList.toggle(classActive)
 		}

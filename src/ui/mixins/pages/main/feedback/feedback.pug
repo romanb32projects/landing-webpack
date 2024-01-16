@@ -34,8 +34,8 @@ mixin feedback(containerClass)
 				.col-span-2
 					.h-full.flex.items-center.justify-around
 						each item in [1, 2, 3, 4, 5]
-							.text-center.cursor-pointer.bg-white-opacity.py-3.px-4.rounded-lg(class='sm:p-0 sm:bg-transparent')
-								.comment-star.text-grizzly.mb-2
+							.comment-star.text-center.cursor-pointer.bg-white-opacity.py-3.px-4.rounded-lg(class='sm:p-0 sm:bg-transparent')
+								.star.text-grizzly.mb-2
 									+star(24, 24)
 								span.text-white.text-base.font-normal #{ item }
 

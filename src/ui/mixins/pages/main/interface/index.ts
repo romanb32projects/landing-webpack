@@ -6,12 +6,8 @@ initSlider('#interface-cards', {
 	gap: 28,
 	dragThreshold: false,
 	breakpoints: {
-		768: {
-			perView: 1,
+		1536: {
 			dragThreshold: 120,
-		},
-		1024: {
-			perView: 2,
 		},
 	},
 })

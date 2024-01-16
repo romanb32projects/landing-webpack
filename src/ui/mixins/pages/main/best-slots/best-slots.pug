@@ -15,11 +15,11 @@ mixin bestSlots(containerClass)
 						p.italic.text-lg.font-semibold #{ block }
 
 						.text-grizzly-dark
-							+moreBlock('View more')
+							+moreBlock({ text: 'View more' })
 
 				.mb-10(id=`slots-cards-${index}`)
 					.mb-6(data-glide-el='track')
-						.flex(class='md:grid md:gap-x-6 md:grid-cols-1 lg:gap-8 lg:grid-cols-4 xl:gap-x-8')
+						.flex(class='lg:grid lg:grid-cols-4 lg:gap-x-6')
 							each card in cards
 								+card
 
