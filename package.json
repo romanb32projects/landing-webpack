@@ -14,13 +14,13 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/RomanB32777/landing-webpack.git"
+		"url": "git+https://github.com/romanb32projects/landing-webpack.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/RomanB32777/landing-webpack/issues"
+		"url": "https://github.com/romanb32projects/landing-webpack/issues"
 	},
 	"homepage": "https://romanb32projects.github.io/landing-webpack",
 	"devDependencies": {
