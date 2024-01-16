@@ -16,7 +16,7 @@ mixin faq(containerClass)
 						  vel sapien. Cras ut justo in sem interdum iaculis.`
 			},
 			{
-				title: 'How do I find a betting site that suits me 2?',
+				title: 'How do I find a betting site that suits me and What is the best betting site?',
 				content: `3 Lorem ipsum dolor sit amet`
 			},
 			{
@@ -47,7 +47,7 @@ mixin faq(containerClass)
 					| But for the quick version, check out the following and get the answers to some of the most common questions
 					| about betting sites and bonuses.
 
-				.questions.grid.grid-cols-1.gap-y-4.text-dark(class='sm:grid-cols-10 sm:gap-y-8 sm:gap-x-6')
+				.questions.grid.grid-cols-1.gap-y-4.text-dark(class='lg:grid-cols-10 lg:gap-y-8 lg:gap-x-6')
 					.col-span-4.col-start-1
 						.flex.flex-col.gap-y-3
 							each question, index in questions
@@ -60,18 +60,18 @@ mixin faq(containerClass)
 											| #{ question.title }
 
 										if (index === 0)
-											.arrow-wrapper.text-white.-rotate-90.duration-200(class='md:rotate-0 basis-1/5')
+											.arrow-wrapper.text-white.-rotate-90.duration-200(class='lg:rotate-0 lg:basis-1/5')
 												+moreBlock({ background: 'primary', modificator: 'justify-end' })
 
 										else
-											.arrow-wrapper.text-grizzly-dark.rotate-90.duration-200(class='md:rotate-0 basis-1/5')
+											.arrow-wrapper.text-grizzly-dark.rotate-90.duration-200(class='lg:rotate-0 lg:basis-1/5')
 												+moreBlock({ modificator: 'justify-end' })
 
-									div(class='md:hidden')
+									div(class='lg:hidden')
 										p.question-mobile-content.text-base.mt-4(class=`${index !== 0 ? 'hidden' : ''}`)
 											| #{ question.content }
 
-					.col-span-6.hidden(class='md:block')
+					.col-span-6.hidden(class='lg:block')
 						each question, index in questions
 							.question-content(data-question-content=index, class=`${index !== 0 ? 'hidden' : ''}`)
 								h5.mb-6.text-lg.font-semibold.italic #{ question.title }

@@ -31,7 +31,7 @@ mixin banner(containerClass)
 		]
 
 	.relative(class='md:mb-28')
-		.relative.isolate.overflow-hidden.bg-gray-900.py-20(class='sm:py-32')
+		.relative.isolate.overflow-hidden.bg-gray-900.py-20(class='lg:py-32')
 			img.absolute.inset-0.-z-10.h-full.w-full.object-cover(
 				src=require('@/assets/images/banner/banner-bg.png'),
 				alt='banner',
@@ -63,7 +63,7 @@ mixin banner(containerClass)
 						br
 						| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
 
-				#banner-cards(class='md:mb-28')
+				#banner-cards.overflow-hidden(class='md:mb-28')
 					.mb-6(data-glide-el='track')
 						.flex(class='lg:grid lg:grid-rows-2 lg:gap-8 lg:grid-cols-3') 
 							each card in cards

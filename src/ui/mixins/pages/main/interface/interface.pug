@@ -17,11 +17,5 @@ mixin interface(containerClass)
 						each image in images
 							img.h-64.rounded-lg(src=require(`@/assets/images/interface/${image}`), alt=image)
 
-				.absolute.-inset-x-16.top-32.hidden(class='2xl:flex 2xl:justify-between', data-glide-el='controls')
-					.arrow-left.text-white.rotate-180(data-glide-dir='<')
-						+moreBlock({ background: 'primary' })
-
-					.arrow-right.text-white(data-glide-dir='>')
-						+moreBlock({ background: 'primary' })
-
+				+sliderArrows
 				+sliderBullets(images, false)
