@@ -1,0 +1,21 @@
+nav.relative.flex.h-20.items-center.justify-between
+	.flex.flex-1.items-center.justify-between
+		.flex.items-center(class='lg:flex-1')
+			+logo
+
+		.flex(class='lg:hidden')
+			+hamburgerBtn
+
+		.hidden(class='lg:flex lg:gap-x-5')
+			each item in menuItems
+				+menuItem(item)
+
+			+menuItem(langItem)
+
+		.hidden(class='lg:flex lg:flex-1 lg:justify-end')
+			.absolute.inset-y-0.right-0.flex.items-center.pr-2(class='sm:static sm:inset-auto sm:pr-0')
+				+button({ icon: 'profile.svg' })
+
+				.relative.ml-3.hidden(class='lg:flex lg:flex-1 lg:justify-end')
+					a.text-sm.font-bold.text-white.uppercase(href='#')
+						| Log in / Sign up

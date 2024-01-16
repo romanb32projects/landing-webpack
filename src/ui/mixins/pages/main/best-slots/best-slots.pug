@@ -1,0 +1,26 @@
+include ../card/card
+
+mixin bestSlots(containerClass)
+	-
+		let blocks = ['Pragmatic Play', 'Pragmatic Play', 'Pragmatic Play']
+		let cards = [1, 2, 3, 4]
+
+	div(class=containerClass)
+		.py-10.overflow-hidden(class='sm:py-20')
+			h2.mb-11.text-base.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Best slots
+
+			each block, index in blocks
+				.mb-8(class='last:mb-0')
+					.flex.justify-between.items-center.mb-8
+						p.italic.text-lg.font-semibold #{ block }
+
+						.text-grizzly-dark
+							+moreBlock('View more')
+
+				.mb-10(id=`slots-cards-${index}`)
+					.mb-6(data-glide-el='track')
+						.flex(class='md:grid md:gap-x-6 md:grid-cols-1 lg:gap-8 lg:grid-cols-4 xl:gap-x-8')
+							each card in cards
+								+card
+
+					+sliderBullets(cards)

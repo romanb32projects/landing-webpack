@@ -1,0 +1,38 @@
+mixin menuItem(item, classModificator = 'uppercase')
+	- let isHasChildren = Boolean(item.children && item.children.length)
+
+	if (isHasChildren)
+		.relative.group.py-1
+			button.flex.items-center.gap-x-1.text-sm.font-bold.text-white.duration-200(
+				type='button',
+				aria-expanded='false',
+				class=`hover:text-grizzly ${classModificator}`
+			)
+				| #{ item.name }
+
+				svg.h-5.w-5.flex-none.text-white.duration-200(
+					class='group-hover:text-grizzly',
+					viewbox='0 0 20 20',
+					fill='currentColor',
+					aria-hidden='true'
+				)
+					path(
+						fill-rule='evenodd',
+						d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z',
+						clip-rule='evenodd'
+					)
+
+			.absolute.-left-2.top-full.z-10.mt-0.w-max.max-w-md.overflow-hidden.rounded-xl.bg-white.shadow-lg.ring-1.invisible(
+				class='ring-gray-900/5 group-hover:visible'
+			)
+				.p-2
+					each children in item.children
+						.relative.flex.items-center.gap-x-6.rounded-lg.p-2.text-sm(class='hover:bg-white')
+							.flex-auto
+								a.block.font-bold.text-dark.duration-200(href='#', class='hover:text-dark-grizzly')
+									| #{ children.name }
+									span.absolute.inset-0
+
+	else
+		a.text-sm.font-bold.text-white.py-1.duration-200(href='#', class=`hover:text-grizzly ${classModificator}`) 
+			| #{ item.name }

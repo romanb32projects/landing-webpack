@@ -1,0 +1,54 @@
+mixin paymentCard({ icon, name, min, max, time, free })
+	.bg-primary-brightest.px-4.rounded-lg.w-48.min-w-48
+		.py-4
+			p.text-sm.text-grizzly.font-medium.mb-2 Deposit Method
+
+			.flex.items-center
+				img.mr-3(src=require(`@/assets/icons/payments/${icon}.svg`), alt=icon)
+				span.font-semibold.italic.text-lg #{ name }
+
+		.py-4
+			p.text-sm.text-grizzly.font-medium.mb-2 Min
+
+			.font-semibold.italic.text-lg
+				if (min)
+					| #{ min }
+				else
+					.flex.items-center
+						span No Limits
+						img.ml-3(src=require('@/assets/icons/payments/infinity.svg'), alt='No Limits')
+
+		.py-4
+			p.text-sm.text-grizzly.font-medium.mb-2 Max
+
+			.font-semibold.italic.text-lg
+				if (max)
+					| #{ max }
+				else
+					.flex.items-center
+						span No Limits
+						img.ml-3(src=require('@/assets/icons/payments/infinity.svg'), alt='No Limits')
+
+
+		.py-4
+			p.text-sm.text-grizzly.font-medium.mb-2 Processing Time
+
+			.font-semibold.italic.text-lg
+				if (time)
+					| #{ time }
+				else
+					.flex.items-center
+						span Instant
+						img.ml-3(src=require('@/assets/icons/payments/flash.svg'), alt='Instant')
+
+
+		.py-4
+			p.text-sm.text-grizzly.font-medium.mb-2 Free
+
+			.font-semibold.italic.text-lg
+				if (free)
+					| #{ free }
+				else
+					.flex.items-center
+						span No Fees
+						span.text-green-500.inline-block.ml-3 0%

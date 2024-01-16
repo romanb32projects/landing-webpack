@@ -1,0 +1,26 @@
+mixin bannerCard({ name, icon, image, text })
+	.group.relative
+		.aspect-h-1.aspect-w-1.w-full.overflow-hidden.rounded-lg.bg-gray-200(class='lg:aspect-none lg:h-96')
+			//- group-hover:opacity-75
+			img.h-full.w-full.object-cover.object-center(
+				src=require(`@/assets/images/banner/${image}`),
+				alt='card alt',
+				class='lg:h-full lg:w-full'
+			)
+
+		if (text)
+			.absolute.inset-0.flex.items-center
+				a.mx-auto.text-primary.font-black.italic.text-base.uppercase(href='#') #{ text }
+
+		if (name && icon)
+			.absolute.inset-x-0.bottom-0.bg-white.mx-4.mb-4.rounded-lg(class="lg:mx-6 lg:mb-6")
+				a(href='#')
+					.px-4.py-3.flex.justify-between.items-center
+						.flex.items-center
+							.bg-primary.overflow-hidden.rounded-md.p-2
+								img.h-full.w-full.object-cover.object-center(src=require(`@/assets/icons/banner/${icon}.svg`))
+
+							p.ml-3.text-sm.font-semibold.italic.text-dark(class="lg:text-lg") 
+								| #{ name }
+
+						img(src=require(`@/assets/icons/banner/arrow.svg`))

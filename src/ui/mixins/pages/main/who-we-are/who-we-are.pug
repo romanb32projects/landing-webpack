@@ -1,0 +1,44 @@
+include ./advantage-card/advantage-card
+
+mixin whoWeAre(containerClass)
+	-
+		let items = [
+			{
+				icon: 'star',
+				title: 'Bookmakers Reviews'
+			},
+			{
+				icon: 'ball',
+				title: 'Odds Trackers'
+			},
+			{
+				icon: 'human',
+				title: 'Offers & Promotions'
+			},
+			{
+				icon: 'gift',
+				title: 'Expert Picks'
+			},
+			{
+				icon: 'predictions',
+				title: 'Tips & Predictions'
+			},									
+		]
+
+	div(class=containerClass)
+		.my-10.overflow-hidden(class='md:my-14')
+			h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Who we are
+
+			p.max-w-3xl.text-base.mb-6(class='md:.mb-11')
+				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
+				br
+				br
+				| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
+
+			#advantages-cards
+				.mb-6(data-glide-el='track')
+					.flex(class='md:grid md:gap-x-6 md:grid-cols-1 lg:gap-6 lg:grid-cols-5 xl:gap-x-6') 
+						each item in items
+							+advantageCard(item)
+
+				+sliderBullets(items)

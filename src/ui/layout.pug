@@ -1,0 +1,70 @@
+block vars
+	-
+		let mobileContainerClass = 'px-4'
+		let containerClass = `mx-auto max-w-7xl ${mobileContainerClass} sm:px-6 lg:px-8`
+		let menuItems = [
+			{ 
+				name: 'Betting sites' 
+			},
+			{ 
+				name: 'Reviews',
+				children: [
+					{ 
+						name: 'Analytics 0'
+					}
+				]
+			},
+			{ 
+				name: 'Bonuses', 
+				children: [
+					{ 
+						name: 'Analytics 1'
+					}, 
+					{ 
+						name: 'Analytics 2'
+					} 
+				]
+			},
+			{
+				name: 'Payment Methods'
+			},
+			{
+				name: 'Sports'
+			},
+			{
+				name: 'Learn'
+			},
+			{
+				name: 'News'
+			},
+			{
+				name: 'About'
+			}
+		]
+
+include ./mixins/header/header
+include ./mixins/header/hamburger-btn/hamburger-btn
+include ./mixins/footer/footer
+include ./mixins/button/button
+include ./mixins/logo/logo
+include ./mixins/star/star
+include ./mixins/arrow/arrow
+include ./mixins/more-block/more-block
+include ./mixins/slider-bullets/slider-bullets
+
+doctype html
+html(lang='en')
+	head
+		meta(http-equiv='Content-Type', content='text/html; charset=UTF-8')
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width,initial-scale=1')
+
+		title 1XBET JAPAN
+
+		body.font-notoSans.bg-dark
+			+header(containerClass, menuItems)
+
+			.pt-20.bg-white-standard
+				block main
+
+			+footer(containerClass, menuItems)

@@ -1,0 +1,16 @@
+@import 'global';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+	height: -webkit-fill-available;
+	box-sizing: border-box;
+}
+
+body {
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+}

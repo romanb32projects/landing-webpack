@@ -1,0 +1,75 @@
+@import 'variables';
+
+:root {
+	--font-family-primary: #{$font-family-primary};
+
+	// s
+	--font-size-s: #{$font-size-s};
+	--font-line-s: #{$font-line-s};
+	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+	// m
+	--font-size-m: #{$font-size-m};
+	--font-line-m: #{$font-line-m};
+	--font-m: var(--font-size-m) / var(--font-line-m) var(--font-family-main);
+
+	// l
+	--font-size-l: #{$font-size-l};
+	--font-line-l: #{$font-line-l};
+	--font-l: var(--font-size-l) / var(--font-line-l) var(--font-family-main);
+
+	// xl
+	--font-size-xl: #{$font-size-xl};
+	--font-line-xl: #{$font-line-xl};
+	--font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
+
+	// ------------ SIZES -------------
+	--mobile-xs: #{$mobile-xs};
+	--tablet-xs: #{$tablet-xs};
+	--tablet-sm: #{$tablet-sm};
+	--tablet-md: #{$tablet-md};
+	--tablet-lg: #{$tablet-lg};
+	--border-radius: 10px;
+
+	// ------------ COLORS -------------
+	// overlay
+	--overlay-color: #{$overlay-color};
+
+	// primary
+	--primary-color: #{$primary-color};
+	--primary-brightest-color: #{$primary-brightest-color};
+
+	// grey
+	--grey-color: #{$grey-color};
+	--grey-background-color: #{$grey-background-color};
+
+	// blue
+	--blue-color: #{$blue-color};
+	--blue-dark-color: #{$blue-dark-color};
+	--blue-transparent-color: #{$blue-transparent-color};
+	--blue-bg-color: #{$blue-bg-color};
+	--blue-bg-dark-color: #{$blue-bg-dark-color};
+
+	// white
+	--white-color: #{$white-color};
+
+	// black
+	--black-color: #{$black-color};
+	--black-transparent-color: #{$black-transparent-color};
+
+	// orange
+	--orange-color: #{$orange-color};
+	--orange-transparent-color: #{$orange-transparent-color};
+
+	// red
+	--red-color: #{$red-color};
+
+	// green
+	--green-color: #{$green-color};
+
+	// components
+	--footer-header: #{$footer-header};
+
+	// ------------ SHADOW -------------
+	--primary-shadow: 0 4px 4px var(--black-transparent-color);
+}

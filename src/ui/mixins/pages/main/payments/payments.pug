@@ -1,0 +1,111 @@
+include ./payment-card/payment-card
+
+mixin payments(containerClass)
+	-
+		let cols = ['Deposit Method', 'Min', 'Max', 'Processing Time', 'Free']
+		let payments = [
+			{
+				icon: 'btc',
+				name: 'BTC',
+				min: false,
+				max: '$5 000',
+				time: '30 minutes',
+				free: '0.2%'
+			},
+			{
+				icon: 'usdt',
+				name: 'USDT',
+				min: false,
+				max: false,
+				time: '1 hour',
+				free: false
+			},
+			{
+				icon: 'visa',
+				name: 'Visa',
+				min: '$184 000',
+				max: false,
+				time: false,
+				free: '1.5%'
+			},
+			{
+				icon: 'mastercard',
+				name: 'MasterCard',
+				min: '$184 000',
+				max: false,
+				time: false,
+				free: false
+			},
+			{
+				icon: 'pix',
+				name: 'PIX',
+				min: false,
+				max: '$12 777 000',
+				time: '14-21 days',
+				free: '5%'
+			}
+		]
+
+	div(class=containerClass)
+		.my-10.overflow-hidden(class='md:my-14')
+			h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Payment Methods
+
+			p.max-w-3xl.text-base.mb-6(class='lg:mb-11')
+				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
+				br
+				br
+				| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
+
+			.relative.overflow-x-auto.hidden(class='md:block')
+				table.payments-table.w-full.text-sm.text-left(class='rtl:text-right')
+					thead.text-sm.text-grizzly.font-medium
+						tr
+							each col in cols
+								th.px-3.py-2(scope='col')
+									| #{ col }
+					tbody
+						each payment in payments
+							tr.font-semibold.italic.text-dark.text-lg(class='[&:nth-child(odd)>*]:bg-primary-brightest')
+								th.px-3.py-6.whitespace-nowrap.flex.items-center.rounded-l-lg(scope='row')
+									img.mr-3(src=require(`@/assets/icons/payments/${payment.icon}.svg`), alt=payment.icon)
+									span #{ payment.name }
+
+								td.px-3.py-6
+									if (payment.min)
+										| #{ payment.min }
+									else
+										.flex.items-center
+											span No Limits
+											img.ml-3(src=require('@/assets/icons/payments/infinity.svg'), alt='No Limits')
+
+								td.px-3.py-6
+									if (payment.max)
+										| #{ payment.max }
+									else
+										.flex.items-center
+											span No Limits
+											img.ml-3(src=require('@/assets/icons/payments/infinity.svg'), alt='No Limits')
+
+								td.px-3.py-6
+									if (payment.time)
+										| #{ payment.time }
+									else
+										.flex.items-center
+											span Instant
+											img.ml-3(src=require('@/assets/icons/payments/flash.svg'), alt='Instant')
+
+								td.px-3.py-6.rounded-r-lg
+									if (payment.free)
+										| #{ payment.free }
+									else
+										.flex.items-center
+											span No Fees
+											span.text-green-500.inline-block.ml-3 0%
+
+			#payments-cards(class='md:hidden')
+				.mb-6(data-glide-el='track')
+					.flex
+						each payment in payments
+							+paymentCard(payment)
+
+				+sliderBullets(payments)

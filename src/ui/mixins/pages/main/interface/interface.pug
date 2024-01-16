@@ -1,0 +1,27 @@
+mixin interface(containerClass)
+	- let images = ['image1.png', 'image2.png', 'image3.png']
+
+	div(class=containerClass)
+		.my-10(class='md:my-14')
+			h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') System interface
+
+			p.max-w-3xl.text-base.mb-6(class='md:mb-11')
+				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
+				br
+				br
+				| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
+
+			#interface-cards.relative
+				.mb-6.overflow-hidden(data-glide-el='track')
+					.flex
+						each image in images
+							img.h-64.rounded-lg(src=require(`@/assets/images/interface/${image}`), alt=image)
+
+				.absolute.-inset-x-16.top-32.hidden(class='md:flex md:justify-between', data-glide-el='controls')
+					.arrow-left.text-white.rotate-180(data-glide-dir='<')
+						+moreBlock('', 'primary')
+
+					.arrow-right.text-white(data-glide-dir='>')
+						+moreBlock('', 'primary')
+
+				+sliderBullets(images, false)

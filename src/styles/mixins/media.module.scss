@@ -1,0 +1,31 @@
+@import '../variables';
+
+@mixin media-mobile-xs {
+	@media (width <= $mobile-xs) {
+		@content;
+	}
+}
+
+@mixin media-tablet-xs {
+	@media (width <= $tablet-xs) {
+		@content;
+	}
+}
+
+@mixin media-tablet-sm {
+	@media (width <= $tablet-sm) {
+		@content;
+	}
+}
+
+@mixin media-tablet-md {
+	@media (width <= $tablet-md) {
+		@content;
+	}
+}
+
+@mixin media-tablet-lg {
+	@media (width <= $tablet-lg) {
+		@content;
+	}
+}

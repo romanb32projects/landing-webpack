@@ -1,0 +1,163 @@
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 100;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-Thin.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 100;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-ThinItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 200;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 200;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-ExtraLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 300;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-Light.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 300;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-LightItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 400;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-Regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 400;
+	src:
+		local('NotoSans'),
+		url('@/assets/fonts/NotoSans/NotoSans-Italic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 500;
+	src: url('@/assets/fonts/NotoSans/NotoSans-Medium.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 500;
+	src: url('@/assets/fonts/NotoSans/NotoSans-MediumItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 600;
+	src: url('@/assets/fonts/NotoSans/NotoSans-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 600;
+	src: url('@/assets/fonts/NotoSans/NotoSans-SemiBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 700;
+	src: url('@/assets/fonts/NotoSans/NotoSans-Bold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 700;
+	src: url('@/assets/fonts/NotoSans/NotoSans-BoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 800;
+	src: url('@/assets/fonts/NotoSans/NotoSans-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 800;
+	src: url('@/assets/fonts/NotoSans/NotoSans-ExtraBoldItalic.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: normal;
+	font-weight: 900;
+	src: url('@/assets/fonts/NotoSans/NotoSans-Black.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'NotoSans';
+	font-style: italic;
+	font-weight: 900;
+	src: url('@/assets/fonts/NotoSans/NotoSans-BlackItalic.ttf') format('truetype');
+}
+
+$font-family-primary: 'NotoSans', 'Arial', sans-serif;
+
+// --------------- FONT SIZES ---------------
+
+// s
+$font-size-s: 12px;
+$font-line-s: 20px;
+
+// m
+$font-size-m: 16px;
+$font-line-m: 24px;
+
+// l
+$font-size-l: 24px;
+$font-line-l: 32px;
+
+// xl
+$font-size-xl: 32px;
+$font-line-xl: 40px;
+
+// ------------ END FONT SIZES -------------

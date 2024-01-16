@@ -1,0 +1,13 @@
+include ./menu-item/menu-item
+include ./menu-item/menu-item-mobile
+
+mixin header(containerClass, menuItems = [])
+	- let langItem = { name: 'Eng', children: [{ name: 'Fr' }, { name: 'Br' }, { name: 'Jp' }] }
+
+	header.bg-dark.fixed.z-50.inset-x-0
+		div(class=containerClass)
+			// Main menu
+			include ./menu/menu
+
+			// Mobile menu, show/hide based on menu open state.
+			include ./mobile-menu/mobile-menu

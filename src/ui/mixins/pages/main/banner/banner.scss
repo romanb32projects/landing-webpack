@@ -1,0 +1,9 @@
+@media (width >= 768px) {
+	.mask-hex {
+		clip-path: polygon(7% 0, 92% 0, 100% 50%, 92% 100%, 8% 100%, 0% 50%);
+	}
+
+	.border-hex {
+		clip-path: polygon(9% -2%, 90% -2%, 98% 50%, 90% 100%, 8% 90%, 2% 50%);
+	}
+}

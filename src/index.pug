@@ -1,0 +1,34 @@
+extends ui/layout
+
+include ui/mixins/pages/main/banner/banner
+include ui/mixins/pages/main/best-slots/best-slots
+include ui/mixins/pages/main/comments/comments
+include ui/mixins/pages/main/eSports/eSports
+include ui/mixins/pages/main/faq/faq
+include ui/mixins/pages/main/feedback/feedback
+include ui/mixins/pages/main/interface/interface
+include ui/mixins/pages/main/payments/payments
+include ui/mixins/pages/main/subscribe/subscribe
+include ui/mixins/pages/main/top-sites/top-sites
+include ui/mixins/pages/main/who-we-are/who-we-are
+
+block main
+	//- Start banner block
+	+banner(containerClass)
+	//- End banner block
+
+	.divide-y.divide-primary-light
+		+topSites(containerClass)
+		+bestSlots(containerClass)
+		+payments(containerClass)
+		+eSports(containerClass)
+
+	+faq(containerClass)
+	+comments(containerClass)
+	+feedback(containerClass)
+
+	.divide-y.divide-primary-light
+		+whoWeAre(containerClass)
+		+interface(containerClass)
+
+	+subscribe(containerClass)
