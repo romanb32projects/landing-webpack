@@ -10,19 +10,19 @@
 		"tsc": "tsc",
 		"lint": "eslint . --color",
 		"lint:fix": "eslint . --fix",
-		"deploy": "gh-pages -d dist"
+		"deploy": "gh-pages -d dist --remote project"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/RomanB32777/landing-webpack.git"
+		"url": "git+https://github.com/romanb32projects/landing-webpack.git"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"bugs": {
-		"url": "https://github.com/RomanB32777/landing-webpack/issues"
+		"url": "https://github.com/romanb32projects/landing-webpack/issues"
 	},
-	"homepage": "https://romanb32777.github.io/landing-webpack",
+	"homepage": "https://romanb32projects.github.io/landing-webpack",
 	"devDependencies": {
 		"@babel/core": "^7.23.3",
 		"@babel/preset-env": "^7.23.3",
