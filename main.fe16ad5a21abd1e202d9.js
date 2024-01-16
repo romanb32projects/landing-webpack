@@ -3933,20 +3933,26 @@ var __rest = (undefined && undefined.__rest) || function (s, e) {
 };
 
 var initSlider = function (containerName, options) {
+    var _a;
     if (options === void 0) { options = {}; }
     var mdWidth = 768;
-    var _a = options.isOnlyMobile, isOnlyMobile = _a === void 0 ? true : _a, glideOptions = __rest(options, ["isOnlyMobile"]);
-    var slider = new Glide(containerName, __assign({ perView: 1, type: 'carousel', gap: 16, autoplay: 5000 }, glideOptions));
+    var lgWidth = 1024;
+    var _b = options.isOnlyMobile, isOnlyMobile = _b === void 0 ? true : _b, breakpoints = options.breakpoints, glideOptions = __rest(options, ["isOnlyMobile", "breakpoints"]);
+    var slider = new Glide(containerName, __assign({ perView: 1, type: 'carousel', gap: 16, autoplay: 5000, breakpoints: __assign((_a = {}, _a[mdWidth] = {
+            perView: 1,
+        }, _a[lgWidth] = {
+            perView: 2,
+        }, _a), breakpoints) }, glideOptions));
     var initWidth = window.innerWidth;
     if (!isOnlyMobile) {
         slider.mount();
     }
-    else if (initWidth <= mdWidth) {
+    else if (initWidth <= lgWidth) {
         slider.mount();
     }
     // getDimensions(500, () => {
     // 	const currentWidth = window.innerWidth
-    // 	if (currentWidth <= mdWidth) {
+    // 	if (currentWidth <= lgWidth) {
     // 		slider.mount()
     // 	} else if (!isOnlyMobile) {
     // 		// slider.disable()
@@ -4002,9 +4008,11 @@ var initFaq = function () {
             arrowWrapper.classList.toggle('rotate-90');
             arrowWrapper.classList.toggle('-rotate-90');
             var arrow = arrowWrapper.querySelector('.more-arrow');
+            arrow === null || arrow === void 0 ? void 0 : arrow.classList.toggle('bg-white-light');
             arrow === null || arrow === void 0 ? void 0 : arrow.classList.toggle('bg-primary');
         }
         title === null || title === void 0 ? void 0 : title.classList.toggle('font-semibold');
+        title === null || title === void 0 ? void 0 : title.classList.toggle('basis-9/12');
     };
     questions.forEach(function (question) {
         question.addEventListener('click', function () {
@@ -4045,7 +4053,8 @@ var setRating = function (stars, rating) {
     if (currentRating < 1) {
         // is clear
         for (var i = currentRating; i < stars.length; ++i) {
-            stars[i].classList.toggle(classInactive);
+            var star = stars[i].querySelector('.star');
+            star === null || star === void 0 ? void 0 : star.classList.toggle(classInactive);
         }
         return;
     }
@@ -4054,16 +4063,16 @@ var setRating = function (stars, rating) {
     }
     // set active stars before currentRating
     for (var i = 0; i < currentRating; i++) {
-        var star = stars[i];
-        if (!star.classList.contains(classActive)) {
+        var star = stars[i].querySelector('.star');
+        if (!(star === null || star === void 0 ? void 0 : star.classList.contains(classActive))) {
             star.classList.toggle(classInactive);
             star.classList.toggle(classActive);
         }
     }
     // set inactive stars after currentRating
     for (var i = currentRating; i < stars.length; i++) {
-        var star = stars[i];
-        if (star.classList.contains(classActive)) {
+        var star = stars[i].querySelector('.star');
+        if (star === null || star === void 0 ? void 0 : star.classList.contains(classActive)) {
             star.classList.toggle(classInactive);
             star.classList.toggle(classActive);
         }
@@ -4093,12 +4102,8 @@ initSlider('#interface-cards', {
     gap: 28,
     dragThreshold: false,
     breakpoints: {
-        768: {
-            perView: 1,
+        1536: {
             dragThreshold: 120,
-        },
-        1024: {
-            perView: 2,
         },
     },
 });
@@ -4124,4 +4129,4 @@ initSlider('#interface-cards', {
 
 /******/ })()
 ;
-//# sourceMappingURL=main.9c7476cb09eb274d951b.js.map
+//# sourceMappingURL=main.fe16ad5a21abd1e202d9.js.map
