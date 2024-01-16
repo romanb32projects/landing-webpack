@@ -7,11 +7,11 @@ mixin topSites(containerClass)
 				h2.text-base.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Top sports betting sites
 
 				.text-grizzly-dark
-					+moreBlock('View All Bookies')
+					+moreBlock({ text: 'View All Bookies' })
 
 			#sites-cards.mt-8
 				.mb-6(data-glide-el='track')
-					.flex(class='md:grid md:gap-x-6 md:grid-cols-1 lg:gap-8 lg:grid-cols-4 xl:gap-x-8') 
+					.flex(class='lg:grid lg:grid-cols-4 lg:gap-x-6') 
 						each card in cards
 							if (card === 1)
 								+card({ index: card, primaryFlag: 'top-sites/crown' })

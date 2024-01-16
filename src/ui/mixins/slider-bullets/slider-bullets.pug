@@ -1,5 +1,5 @@
 mixin sliderBullets(items = [], isOnlyMobile = true)
-	.bullets.flex.justify-center.gap-x-3(data-glide-el='controls[nav]', class=isOnlyMobile && 'md:hidden')
+	.bullets.flex.justify-center.gap-x-3(data-glide-el='controls[nav]', class=isOnlyMobile && 'lg:hidden')
 		each item, index in items
 			button.glide__bullet.w-3.h-3.rounded-full.duration-200.bg-primary-brightest(
 				data-glide-dir=`=${index}`,

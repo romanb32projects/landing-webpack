@@ -24,10 +24,12 @@ export const initFaq = () => {
 			arrowWrapper.classList.toggle('-rotate-90')
 
 			const arrow = arrowWrapper.querySelector('.more-arrow')
+			arrow?.classList.toggle('bg-white-light')
 			arrow?.classList.toggle('bg-primary')
 		}
 
 		title?.classList.toggle('font-semibold')
+		title?.classList.toggle('basis-9/12')
 	}
 
 	questions.forEach((question) => {
