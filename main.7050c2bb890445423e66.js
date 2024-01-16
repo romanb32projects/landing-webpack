@@ -3975,7 +3975,16 @@ initSlider('#banner-cards');
 
 ;// CONCATENATED MODULE: ./src/ui/mixins/pages/main/top-sites/index.ts
 
-initSlider('#sites-cards');
+initSlider('#sites-cards', {
+    isOnlyMobile: false,
+    perView: 4,
+    dragThreshold: false,
+    breakpoints: {
+        1536: {
+            dragThreshold: 120,
+        },
+    },
+});
 
 ;// CONCATENATED MODULE: ./src/ui/mixins/pages/main/best-slots/index.ts
 
@@ -3985,7 +3994,13 @@ for (var i = 0; i < 3; i++) {
 
 ;// CONCATENATED MODULE: ./src/ui/mixins/pages/main/payments/index.ts
 
-initSlider("#payments-cards", { perView: 2 });
+initSlider("#payments-cards", {
+    breakpoints: {
+        768: {
+            perView: 2,
+        },
+    },
+});
 
 ;// CONCATENATED MODULE: ./src/ui/mixins/pages/main/faq/index.ts
 var initFaq = function () {
@@ -4092,7 +4107,19 @@ executeRating();
 
 ;// CONCATENATED MODULE: ./src/ui/mixins/pages/main/who-we-are/index.ts
 
-initSlider('#advantages-cards');
+initSlider('#advantages-cards', {
+    breakpoints: {
+        576: {
+            perView: 1,
+        },
+        768: {
+            perView: 2,
+        },
+        1024: {
+            perView: 3,
+        },
+    },
+});
 
 ;// CONCATENATED MODULE: ./src/ui/mixins/pages/main/interface/index.ts
 
@@ -4129,4 +4156,4 @@ initSlider('#interface-cards', {
 
 /******/ })()
 ;
-//# sourceMappingURL=main.fe16ad5a21abd1e202d9.js.map
+//# sourceMappingURL=main.7050c2bb890445423e66.js.map
