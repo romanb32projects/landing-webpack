@@ -6,7 +6,7 @@ import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import { buildBabelLoader } from './babel/build.babel.loader'
 import type { IBuildOptions } from './types'
 
-export function buildLoaders({ mode, babel }: IBuildOptions): ModuleOptions['rules'] {
+export function buildLoaders({ mode, isBabel }: IBuildOptions): ModuleOptions['rules'] {
 	const isDev = mode === 'development'
 
 	const assetLoader = {
@@ -69,5 +69,12 @@ export function buildLoaders({ mode, babel }: IBuildOptions): ModuleOptions['rul
 
 	const babelLoader = buildBabelLoader()
 
-	return [assetLoader, fontLoader, svgLoader, pugLoader, scssLoader, babel ? babelLoader : tsLoader]
+	return [
+		assetLoader,
+		fontLoader,
+		svgLoader,
+		pugLoader,
+		scssLoader,
+		isBabel ? babelLoader : tsLoader,
+	]
 }

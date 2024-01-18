@@ -4,7 +4,6 @@ import { ProgressPlugin, DefinePlugin, HotModuleReplacementPlugin } from 'webpac
 import HtmlWebpackPlugin from 'html-webpack-plugin'
 import MiniCssExtractPlugin from 'mini-css-extract-plugin'
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
-// import CopyPlugin from 'copy-webpack-plugin'
 
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer'
 import type { Configuration } from 'webpack'
@@ -14,7 +13,7 @@ import type { IBuildOptions } from './types'
 export function buildPlugins({
 	mode,
 	paths,
-	analyzer,
+	isAnalyzer,
 	platform,
 }: IBuildOptions): Configuration['plugins'] {
 	const isDev = mode === 'development'
@@ -22,9 +21,12 @@ export function buildPlugins({
 	const plugins: Configuration['plugins'] = [
 		new ProgressPlugin(),
 		new HtmlWebpackPlugin({
-			template: paths.html,
+			template: path.resolve(paths.views, 'pages', 'index.pug'),
 			filename: 'index.html',
-			favicon: path.resolve(paths.public, 'favicon.ico'),
+			favicon: path.resolve(paths.src, 'assets', 'favicons', 'favicon.ico'),
+			minify: {
+				removeComments: false,
+			},
 		}),
 		// new Dotenv({
 		// 	path: './.env',
@@ -48,18 +50,10 @@ export function buildPlugins({
 				filename: 'css/[name].[contenthash].css',
 				chunkFilename: 'css/[name].[contenthash].css',
 			})
-			// new CopyPlugin({
-			// 	patterns: [
-			// 		{
-			// 			from: path.resolve(paths.public, 'folder'),
-			// 			to: path.resolve(paths.output, 'folder'),
-			// 		},
-			// 	],
-			// })
 		)
 	}
 
-	if (analyzer) {
+	if (isAnalyzer) {
 		plugins.push(new BundleAnalyzerPlugin())
 	}
 

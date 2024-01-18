@@ -1,0 +1,86 @@
+//- Local variables
+-
+	let mobileContainerClass = 'px-4'
+	let containerClass = `mx-auto max-w-7xl ${mobileContainerClass} sm:px-6 lg:px-8`
+	let menuItems = [
+		{ 
+	    	name: 'Betting sites' 
+		},
+	  	{ 
+			name: 'Reviews',
+			children: [
+			{ 
+				name: 'Analytics 0'
+			}
+			]
+	  	},
+		{ 
+			name: 'Bonuses', 
+			children: [
+				{ 
+					name: 'Analytics 1'
+				}, 
+				{ 
+					name: 'Analytics 2'
+				} 
+			]
+		},
+		{
+			name: 'Payment Methods'
+		},
+		{
+			name: 'Sports'
+		},
+		{
+			name: 'Learn'
+		},
+		{
+			name: 'News'
+		},
+		{
+			name: 'About'
+		}
+	]
+
+//- External variables
+block variables
+
+//- Include mixins
+include ~@/ui/mixins/header/header
+include ~@/ui/mixins/header/hamburger-btn/hamburger-btn
+include ~@/ui/mixins/footer/footer
+include ~@/ui/mixins/button/button
+include ~@/ui/mixins/logo/logo
+include ~@/ui/mixins/star/star
+include ~@/ui/mixins/arrow/arrow
+include ~@/ui/mixins/more-block/more-block
+include ~@/ui/mixins/slider-arrows/slider-arrows
+include ~@/ui/mixins/slider-bullets/slider-bullets
+
+doctype html
+html(lang='en')
+	head
+		//- Meta
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
+		meta(property='description', content=description)
+
+		//- Page title
+		title= title
+
+		//- Page styles
+		block style
+
+		//- Additional head block to add here page specifically assets
+		block head
+
+	body.font-notoSans.bg-dark
+		+header(containerClass, menuItems)
+
+		.pt-20.bg-white-standard
+			block main
+
+		+footer(containerClass, menuItems)
+
+		//- Page scripts
+		block script

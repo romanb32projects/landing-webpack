@@ -5,12 +5,13 @@
 	"main": "index.js",
 	"scripts": {
 		"build": "webpack",
+		"build:deploy": "webpack --env isDeploy=true",
 		"start": "webpack serve --env mode=development",
 		"watch": "webpack --watch",
 		"tsc": "tsc",
 		"lint": "eslint . --color",
 		"lint:fix": "eslint . --fix",
-		"deploy": "gh-pages -d dist"
+		"deploy": "npm run build:deploy && gh-pages -d dist"
 	},
 	"repository": {
 		"type": "git",

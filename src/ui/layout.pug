@@ -62,10 +62,14 @@ html(lang='en')
 
 		title 1XBET JAPAN
 
-		body.font-notoSans.bg-dark
-			+header(containerClass, menuItems)
+	body.font-notoSans.bg-dark
+		// Start header
+		+header(containerClass, menuItems)
+		// End header
 
-			.pt-20.bg-white-standard
-				block main
+		main.pt-20.bg-white-standard
+			block main
 
-			+footer(containerClass, menuItems)
+		// Start footer
+		+footer(containerClass, menuItems)
+		// End footer
