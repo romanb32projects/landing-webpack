@@ -14,7 +14,7 @@ mixin bestSlots(containerClass)
 					.flex.justify-between.items-center.mb-8
 						p.italic.text-lg.font-semibold #{ block }
 
-						.text-grizzly-dark
+						a.text-grizzly-dark(href='#')
 							+moreBlock({ text: 'View more' })
 
 				.mb-10(id=`slots-cards-${index}`)

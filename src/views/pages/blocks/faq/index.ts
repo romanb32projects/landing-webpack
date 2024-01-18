@@ -29,7 +29,6 @@ export const initFaq = () => {
 		}
 
 		title?.classList.toggle('font-semibold')
-		// title?.classList.toggle('basis-9/12')
 	}
 
 	questions.forEach((question) => {

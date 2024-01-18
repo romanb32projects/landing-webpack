@@ -25,6 +25,28 @@ export const initSlider = (containerName: string, options: TSliderOptions = {}) 
 			},
 			...breakpoints,
 		},
+		classes: {
+			direction: {
+				ltr: 'glide--ltr',
+				rtl: 'glide--rtl',
+			},
+			nav: {
+				active: 'nav-active',
+			},
+			swipeable: 'glide--swipeable',
+			dragging: 'glide--dragging',
+			type: {
+				slider: 'glide--slider',
+				carousel: 'glide--carousel',
+			},
+			slide: {
+				active: 'glide__slide--active',
+				clone: 'glide__slide--clone',
+			},
+			arrow: {
+				disabled: 'glide__arrow--disabled',
+			},
+		},
 		...glideOptions,
 	})
 

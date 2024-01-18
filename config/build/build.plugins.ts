@@ -21,8 +21,8 @@ export function buildPlugins({
 	const plugins: Configuration['plugins'] = [
 		new ProgressPlugin(),
 		new HtmlWebpackPlugin({
-			template: path.resolve(paths.views, 'pages', 'index.pug'),
 			filename: 'index.html',
+			template: path.resolve(paths.views, 'pages', 'index.pug'),
 			favicon: path.resolve(paths.src, 'assets', 'favicons', 'favicon.ico'),
 			minify: {
 				removeComments: false,

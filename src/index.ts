@@ -1,2 +1,2 @@
-import '@/ui/mixins'
 import '@/views/pages'
+import '@/styles/index.scss'

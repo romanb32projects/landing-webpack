@@ -12,7 +12,7 @@ export default (env: TEnvVariables<string>) => {
 	const envPlatform = env.platform ?? (PLATFORM as TBuildPlatform | undefined)
 	const envPort = Number(env.port ?? PORT)
 	const envAnalyzer = ANALYZER ? ANALYZER === 'true' : env.isAnalyzer === 'true'
-	const envABabel = BABEL ? BABEL === 'true' : env.isBabel === 'true'
+	const envBabel = BABEL ? BABEL === 'true' : env.isBabel === 'true'
 	const envMinimizeImage = MINIMIZE_IMAGE
 		? MINIMIZE_IMAGE === 'true'
 		: env.isMinimizeImage === 'true'
@@ -27,7 +27,7 @@ export default (env: TEnvVariables<string>) => {
 			src: path.resolve(__dirname, 'src'),
 		},
 		isAnalyzer: envAnalyzer,
-		isBabel: envABabel,
+		isBabel: envBabel,
 		isMinimizeImage: envMinimizeImage,
 		isDeploy: env.isDeploy === 'true',
 		platform: envPlatform ?? 'desktop',

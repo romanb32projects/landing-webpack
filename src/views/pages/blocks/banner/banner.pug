@@ -74,7 +74,7 @@ mixin banner(containerClass)
 					+sliderBullets(cards)
 
 		div(class='md:absolute md:inset-x-0 md:-bottom-28')
-			.relative.px-0(class=containerClass.replace(mobileContainerClass, ''))
+			.relative.px-0(class="mx-auto max-w-7xl md:px-6 lg:px-8")
 				.border-hex.bg-white-standard.w-full.h-full.absolute.inset-x-0.-top-2.hidden(class='md:block')
 				.mask-hex.relative.isolate.overflow-hidden.w-full(class='md:bg-primary')
 					img.absolute.inset-0.-z-10.h-full.w-full.object-cover(

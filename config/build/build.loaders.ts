@@ -20,6 +20,9 @@ export function buildLoaders({ mode, isBabel }: IBuildOptions): ModuleOptions['r
 	const fontLoader = {
 		test: /\.(woff|woff2|eot|ttf|otf)$/i,
 		type: 'asset/resource',
+		generator: {
+			filename: path.join('fonts', '[name].[contenthash][ext]'),
+		},
 	}
 
 	const svgLoader = {
@@ -45,12 +48,7 @@ export function buildLoaders({ mode, isBabel }: IBuildOptions): ModuleOptions['r
 			// загрузчик CSS файлов для пост-обработки
 			'postcss-loader',
 			// 'sass-loader' - загрузчик файлов Sass/SCSS
-			{
-				loader: 'sass-loader',
-				options: {
-					additionalData: '@import "@/styles/index";',
-				},
-			},
+			'sass-loader',
 		],
 	}
 

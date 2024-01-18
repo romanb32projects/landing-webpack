@@ -1,6 +1,9 @@
+import path from 'path'
+
 import type { Configuration } from 'webpack'
 import ImageMinimizerPlugin from 'image-minimizer-webpack-plugin'
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin'
+import TerserPlugin from 'terser-webpack-plugin'
 
 import { buildDevServer } from './build.server'
 import { buildLoaders } from './build.loaders'
@@ -17,10 +20,13 @@ export function buildWebpack(options: IBuildOptions): Configuration {
 
 	const config: Configuration = {
 		mode: mode ?? 'development',
-		entry: paths.entry,
+		entry: {
+			main: paths.entry,
+			header: path.resolve(paths.src, 'ui', 'mixins', 'header', 'index.ts'),
+		},
 		output: {
 			path: paths.output,
-			filename: '[name].[contenthash].js',
+			filename: 'js/[name].[contenthash].js',
 			clean: !isDev,
 		},
 		plugins: buildPlugins(options),
@@ -38,7 +44,23 @@ export function buildWebpack(options: IBuildOptions): Configuration {
 
 	if (!isDev) {
 		config.optimization = {
-			minimizer: [new CssMinimizerPlugin()],
+			minimizer: [new CssMinimizerPlugin(), new TerserPlugin()],
+
+			splitChunks: {
+				chunks: 'all',
+				maxInitialRequests: Infinity,
+				minSize: 0,
+				cacheGroups: {
+					vendor: {
+						test: /[\\/]node_modules[\\/]/,
+						name(module: { context: string }) {
+							const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1]
+
+							return packageName.replace('@', '')
+						},
+					},
+				},
+			},
 		}
 
 		if (isMinimizeImage) {

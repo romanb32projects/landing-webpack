@@ -1,7 +1,6 @@
 //- Local variables
 -
-	let mobileContainerClass = 'px-4'
-	let containerClass = `mx-auto max-w-7xl ${mobileContainerClass} sm:px-6 lg:px-8`
+	let containerClass = `mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`
 	let menuItems = [
 		{ 
 	    	name: 'Betting sites' 
@@ -74,13 +73,17 @@ html(lang='en')
 		//- Additional head block to add here page specifically assets
 		block head
 
-	body.font-notoSans.bg-dark
+	body.font-notoSans.bg-dark(class='sm:overflow-auto')
+		// Start header
 		+header(containerClass, menuItems)
+		// End header
 
 		.pt-20.bg-white-standard
 			block main
 
+		// Start footer
 		+footer(containerClass, menuItems)
+		// End footer
 
 		//- Page scripts
 		block script
