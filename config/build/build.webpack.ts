@@ -11,7 +11,7 @@ import type { IBuildOptions } from './types'
 import { name } from '../../package.json'
 
 export function buildWebpack(options: IBuildOptions): Configuration {
-	const { mode, paths } = options
+	const { mode, paths, isMinimizeImage, isDeploy } = options
 
 	const isDev = mode === 'development'
 
@@ -21,7 +21,6 @@ export function buildWebpack(options: IBuildOptions): Configuration {
 		output: {
 			path: paths.output,
 			filename: '[name].[contenthash].js',
-			publicPath: `/${name}/`,
 			clean: !isDev,
 		},
 		plugins: buildPlugins(options),
@@ -33,10 +32,17 @@ export function buildWebpack(options: IBuildOptions): Configuration {
 		devServer: isDev ? buildDevServer(options) : undefined,
 	}
 
+	if (!isDev && isDeploy) {
+		config.output.publicPath = `/${name}/`
+	}
+
 	if (!isDev) {
 		config.optimization = {
-			minimizer: [
-				new CssMinimizerPlugin(),
+			minimizer: [new CssMinimizerPlugin()],
+		}
+
+		if (isMinimizeImage) {
+			config.optimization.minimizer.push(
 				new ImageMinimizerPlugin({
 					minimizer: {
 						implementation: ImageMinimizerPlugin.imageminMinify,
@@ -49,8 +55,8 @@ export function buildWebpack(options: IBuildOptions): Configuration {
 							],
 						},
 					},
-				}),
-			],
+				})
+			)
 		}
 	}
 

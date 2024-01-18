@@ -1,0 +1,120 @@
+mixin faq(containerClass)
+	-
+		let questions = [
+			{
+				title: 'What is the best betting site?',
+				content: `1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin.`
+			},
+			{
+				title: 'How do I find a betting site that suits me?',
+				content: `1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.1 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor, varius facilisis nulla. Sed tempor posuere arcu a posuere. Aliquam 
+						  sollicitudin, dui pulvinar venenatis lacinia, lorem massa iaculis magna, at eleifend arcu sapien 
+						  vel sapien. Cras ut justo in sem interdum iaculis.`
+			},
+			{
+				title: 'How do I find a betting site that suits me and What is the best betting site?',
+				content: `3 Lorem ipsum dolor sit amet`
+			},
+			{
+				title: 'How do I find a betting site that suits me 3?',
+				content: `4 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean aliquam neque ut rutrum fringilla. 
+						  Vestibulum et accumsan tortor.`
+			},
+			{
+				title: 'How do I find a betting site that suits me 4?',
+				content: `Sed tempor posuere arcu a posuere. Aliquam sollicitudin, dui pulvinar venenatis lacinia, lorem massa 
+						  iaculis magna, at eleifend arcu sapien vel sapien. Cras ut justo in sem interdum iaculis.`
+			},
+			{
+				title: 'How do I find a betting site that suits me 5?',
+				content: `Sed tempor posuere arcu a posuere. Aliquam sollicitudin, dui pulvinar venenatis lacinia, lorem massa 
+						  iaculis magna, at eleifend arcu sapien vel sapien. Cras ut justo in sem interdum iaculis.`
+			},
+			{
+				title: 'How do I find a betting site that suits me 6?',
+				content: `Sed tempor posuere arcu a posuere. Aliquam sollicitudin, dui pulvinar venenatis lacinia, lorem massa 
+						  iaculis magna, at eleifend arcu sapien vel sapien. Cras ut justo in sem interdum iaculis.`
+			}
+		]
+
+	.relative.isolate.overflow-hidden.bg-gray-900.py-16(class='sm:py-24 lg:py-32')
+		img.absolute.inset-0.-z-10.h-full.w-full.object-cover(
+			src=require('@/assets/images/faq-bg.png'),
+			alt='banner',
+			class='md:object-center'
+		)
+		div(class=containerClass)
+			.bg-white.rounded-lg.p-6(class='md:p-10')
+				h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl')
+					| FAQ About betting sites & betting bonuses
+
+				p.text-sm.font-normal.mb-6(class='md:mb-11')
+					| Welcome to Bookiesbonuses.com. We offer you a lot of great content across our website.
+					| But for the quick version, check out the following and get the answers to some of the most common questions
+					| about betting sites and bonuses.
+
+				.questions.grid.grid-cols-1.gap-y-4.text-dark(class='lg:grid-cols-10 lg:gap-y-8 lg:gap-x-6')
+					.col-span-4.col-start-1
+						.flex.flex-col.gap-y-3
+							each question, index in questions
+								.question.group.border.border-primary-light.px-6.py-4.rounded-lg.duration-200(
+									class=`hover:bg-primary-brightest ${index === 0 ? 'bg-primary-brightest' : ''}`,
+									data-question=index
+								)
+									.flex.items-start.justify-between.cursor-pointer
+										p.question-title.text-base(class=`basis-5/6 ${index === 0 ? 'font-semibold' : ''}`) 
+											| #{ question.title }
+
+										if (index === 0)
+											.arrow-wrapper.text-white.-rotate-90.duration-200(class='lg:rotate-0 lg:basis-1/6')
+												+moreBlock({ background: 'primary', modificator: 'justify-end' })
+
+										else
+											.arrow-wrapper.text-grizzly-dark.rotate-90.duration-200(class='lg:rotate-0 lg:basis-1/6')
+												+moreBlock({ modificator: 'justify-end' })
+
+									div(class='lg:hidden')
+										p.question-mobile-content.text-base.mt-4(class=`${index !== 0 ? 'hidden' : ''}`)
+											| #{ question.content }
+
+					.col-span-6.hidden.relative(class='lg:block')
+						each question, index in questions
+							.question-content.absolute.inset-0.h-full.overflow-y-auto(
+								data-question-content=index,
+								class=`${index !== 0 ? 'hidden' : ''}`
+							)
+								h5.mb-6.text-lg.font-semibold.italic #{ question.title }
+								p.text-base #{ question.content }

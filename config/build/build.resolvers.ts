@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Configuration } from 'webpack'
 
 import type { IBuildOptions } from './types'

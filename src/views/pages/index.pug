@@ -1,0 +1,65 @@
+extends ~@/views/layouts/default
+
+include blocks/banner/banner
+include blocks/best-slots/best-slots
+include blocks/comments/comments
+include blocks/eSports/eSports
+include blocks/faq/faq
+include blocks/feedback/feedback
+include blocks/interface/interface
+include blocks/payments/payments
+include blocks/subscribe/subscribe
+include blocks/top-sites/top-sites
+include blocks/who-we-are/who-we-are
+
+//- set variables used in layout
+block variables
+	- let title = '1XBET JAPAN'
+	- let description = `${title} description`
+
+block main
+	// Start banner block
+	+banner(containerClass)
+	// End banner block
+
+	.divide-y.divide-primary-light
+		// Start top sites block
+		+topSites(containerClass)
+		// End top sites block
+
+		// Start best slots block
+		+bestSlots(containerClass)
+		// End best slots block
+
+		// Start payments block
+		+payments(containerClass)
+		// End payments block
+
+		// Start eSports block
+		+eSports(containerClass)
+		// End eSports block
+
+	// Start faq block
+	+faq(containerClass)
+	// End faq block
+
+	// Start comments block
+	+comments(containerClass)
+	// End comments block
+
+	// Start feedback block
+	+feedback(containerClass)
+	// End feedback block
+
+	.divide-y.divide-primary-light
+		// Start who we are block
+		+whoWeAre(containerClass)
+		// End who we are block
+
+		// Start interface block
+		+interface(containerClass)
+		// End interface block
+
+	// Start subscribe block
+	+subscribe(containerClass)
+	// End subscribe block
