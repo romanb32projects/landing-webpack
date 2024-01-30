@@ -1,6 +1,6 @@
 mixin bannerCard({ name, icon, image, text })
 	.group.relative.swiper-slide
-		.aspect-h-1.aspect-w-1.w-full.overflow-hidden.rounded-lg.bg-gray-200(class='lg:aspect-none lg:h-96')
+		.aspect-h-1.aspect-w-1.w-full.overflow-hidden.rounded-lg.bg-gray-200.h-96(class='lg:aspect-none')
 			img.h-full.w-full.object-cover.object-center(
 				src=require(`@/assets/images/banner/${image}`),
 				alt=image,

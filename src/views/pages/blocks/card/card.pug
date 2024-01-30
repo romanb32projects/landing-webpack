@@ -1,6 +1,6 @@
 mixin card(flagInfo)
 	.group.relative.swiper-slide
-		.aspect-h-1.aspect-w-1.w-full.overflow-hidden.rounded-lg.bg-gray-200(class='lg:aspect-none group-hover:opacity-75 lg:h-96')
+		.aspect-h-1.aspect-w-1.w-full.overflow-hidden.rounded-lg.bg-gray-200.h-96(class='lg:aspect-none group-hover:opacity-75')
 			img.h-full.w-full.object-cover.object-center(
 				src=require('@/assets/images/item.png'),
 				alt='card alt',
@@ -22,8 +22,8 @@ mixin card(flagInfo)
 		.absolute.inset-x-0.bottom-0
 			.mx-4
 				.mx-7
-					p.font-notoSans.mb-2.text-xs.font-semibold.italic.text-yellow Pragmatic Play
-					p.font-notoSans.mb-6.text-base.font-semibold.italic.text-white Sweet bonanza
+					p.font-notoSans.mb-2.text-base.font-semibold.italic.text-yellow(class="lg:text-xs") Pragmatic Play
+					p.font-notoSans.mb-6.text-lg.font-semibold.italic.text-white(class="lg:text-base") Sweet bonanza
 
 				a.no-underline(href='#')
 					+button({ text: 'Play now', wrapperClass: 'w-full' })

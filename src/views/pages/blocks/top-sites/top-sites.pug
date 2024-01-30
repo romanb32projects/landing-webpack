@@ -4,13 +4,13 @@ mixin topSites(containerClass)
 	div(class=containerClass)
 		.py-10(class='sm:py-20')
 			.flex.justify-between.items-center
-				h2.font-notoSans.text-base.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Top sports betting sites
+				h2.font-notoSans.text-xl.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Top sports betting sites
 
 				a.text-grizzly-dark.no-underline(href='#')
 					+moreBlock({ text: 'View All Bookies' })
 
 			.relative
-				.overflow-hidden.pb-11
+				.overflow-hidden.pb-14
 					.sites-cards.relative
 						.swiper-wrapper.pt-11
 							each card in cards

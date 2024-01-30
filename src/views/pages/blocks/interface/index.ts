@@ -2,7 +2,6 @@ import { initSwiperSlider, baseBreakpoints } from '@/utils';
 
 initSwiperSlider('.interface-cards', {
 	loop: true,
-	autoplay: false,
 	breakpoints: {
 		[baseBreakpoints.sm]: {
 			slidesPerView: 1,
