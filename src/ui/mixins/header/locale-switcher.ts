@@ -14,20 +14,16 @@ const createAndAppendMenuElement = (
 			'flex',
 			'items-center',
 			'gap-x-6',
-			'rounded-lg',
 			'p-2',
 			'text-sm',
+			'text-dark',
 			'font-semibold',
-			'text-white',
-			'hover:bg-white',
-			'hover:text-dark',
-			'lg:hover:bg-transparent',
-			'lg:hover:text-dark-grizzly',
-			'lg:font-bold',
-			'lg:rounded-none',
-			'lg:text-dark',
+			'xl:font-bold',
 		];
 		listEl.classList.add(...listElClasses);
+
+		const linkElClasses = ['block', 'no-underline'];
+		linkEl.classList.add(...linkElClasses);
 
 		listEl.setAttribute('id', `menu-item-lang-${locale}`);
 		linkEl.setAttribute('href', localeLink);

@@ -10,13 +10,11 @@ nav.relative.flex.h-20.items-center.justify-between
 			each item in menuItems
 				+menuItem(item)
 
-			//- +menuItem(langItem, 'lang-switcher')
-
 			li.dropdown.group.relative.-mx-3.pt-2.lang-switcher(class='xl:m-0 xl:py-1')
-				a.dropdown-toggle.sdglkjksdhbgd.font-notoSans.w-full.flex.justify-between.items-center.gap-x-1.text-base.font-semibold.text-white.duration-200.pl-3.py-2.rounded-lg(
+				a.dropdown-toggle.font-notoSans.flex.justify-between.items-center.gap-x-1.text-white.duration-200.rounded-lg.font-bold.text-sm.rounded-none.w-auto.uppercase(
 					href='#',
 					aria-expanded='false',
-					class='pr-3.5 hover:bg-white hover:text-dark xl:hover:bg-transparent xl:hover:text-grizzly xl:font-bold xl:text-sm xl:pl-0 xl:pr-0 xl:py-0 xl:rounded-none xl:w-auto xl:uppercase'
+					class='hover:bg-transparent hover:text-grizzly'
 				)
 					svg.dropdown-arrow.h-5.w-5.flex-none.duration-200(
 						class='xl:group-hover:rotate-180',
@@ -30,27 +28,8 @@ nav.relative.flex.h-20.items-center.justify-between
 							clip-rule='evenodd'
 						)
 
-				ul.dropdown-menu.mt-2.space-y-2.hidden(
-					class=`
-						ring-gray-900/5 
-						xl:block 
-						xl:invisible 
-						xl:group-hover:visible 
-						xl:mt-0 
-						xl:space-y-0 
-						xl:absolute 
-						xl:-left-2 
-						xl:top-full 
-						xl:z-10 
-						xl:w-max 
-						xl:max-w-md
-						xl:overflow-hidden
-						xl:rounded-xl
-						xl:bg-white
-						xl:shadow-lg
-						xl:ring-1
-						xl:p-2
-					`
+				ul.dropdown-menu.absolute.-left-2.top-full.z-10.mt-0.w-max.max-w-md.overflow-hidden.rounded-xl.bg-white.shadow-lg.ring-1.invisible.p-2(
+					class='ring-gray-900/5 group-hover:visible [&>*:hover]:text-dark-grizzly'
 				)
 
 		.hidden(class='xl:flex xl:flex-1 xl:justify-end')
