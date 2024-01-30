@@ -70,14 +70,14 @@ mixin faq(containerClass)
 			}
 		]
 
-	.relative.isolate.overflow-hidden.bg-gray-900.py-16(class='sm:py-24 lg:py-32')
-		img.absolute.inset-0.-z-10.h-full.w-full.object-cover(
+	.relative.isolate.overflow-hidden.bg-gray-900.pt-36.pb-0.bg-white-standard(class='sm:py-24 lg:py-32')
+		img.absolute.inset-0.-z-10.h-36.w-full.object-cover(
 			src=require('@/assets/images/faq-bg.png'),
 			alt='faq',
-			class='md:object-center'
+			class='sm:object-center sm:h-full'
 		)
-		div(class=containerClass)
-			.bg-white.rounded-lg.p-6(class='md:p-10')
+		div(class=containerClass.replace('px-4', ''))
+			.bg-white-standard.rounded-none.p-4(class='sm:p-10 sm:bg-white sm:rounded-lg')
 				h2.font-notoSans.text-xl.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl')
 					| FAQ About betting sites & betting bonuses
 
@@ -86,7 +86,9 @@ mixin faq(containerClass)
 					| But for the quick version, check out the following and get the answers to some of the most common questions
 					| about betting sites and bonuses.
 
-				.questions.grid.grid-cols-1.gap-y-4.text-dark(class='lg:grid-cols-10 lg:gap-y-8 lg:gap-x-6')
+				.questions.grid.grid-cols-1.gap-y-4.text-dark.pb-10.border-b.border-primary-light(
+					class='sm:pb-0 sm:border-none lg:grid-cols-10 lg:gap-y-8 lg:gap-x-6'
+				)
 					.col-span-4.col-start-1
 						.flex.flex-col.gap-y-3
 							each question, index in questions
