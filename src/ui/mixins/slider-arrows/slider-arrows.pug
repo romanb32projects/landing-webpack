@@ -1,7 +1,9 @@
-mixin sliderArrows(topPosition = 'top-32')
-	.absolute.-inset-x-16.hidden(class=`${topPosition} 2xl:flex 2xl:justify-between`, data-glide-el='controls')
-		.arrow-left.text-white.rotate-180(data-glide-dir='<')
-			+moreBlock({ background: 'primary' })
+mixin sliderArrows(sliderName, topPosition = 'top-32')
+	- let disableClass = 'group-[.nav-disabled]:opacity-50 group-[.nav-disabled]:pointer-events-none';
 
-		.arrow-right.text-white(data-glide-dir='>')
-			+moreBlock({ background: 'primary' })
+	.absolute.-inset-x-16.hidden(class=`${topPosition} 2xl:flex 2xl:justify-between`)
+		.group.text-white.rotate-180(class=`arrow-left-${sliderName}`)
+			+moreBlock({ background: 'primary', modificator: disableClass })
+
+		.group.text-white(class=`arrow-right-${sliderName}`)
+			+moreBlock({ background: 'primary', modificator: disableClass })

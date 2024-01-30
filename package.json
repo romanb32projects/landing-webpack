@@ -11,6 +11,9 @@
 		"tsc": "tsc",
 		"lint": "eslint . --color",
 		"lint:fix": "eslint . --fix",
+		"format:config": "prettier --write \"config/**/*.ts\"",
+		"format:src": "prettier --write \"src/**/*.ts\"",
+		"format": "npm run format:config && npm run format:src",
 		"deploy": "npm run build:deploy && gh-pages -d dist"
 	},
 	"repository": {
@@ -31,7 +34,6 @@
 		"@prettier/plugin-pug": "^3.0.0",
 		"@tailwindcss/forms": "^0.5.7",
 		"@types/dotenv-webpack": "^7.0.7",
-		"@types/glidejs__glide": "^3.6.5",
 		"@types/node": "^20.10.0",
 		"@types/webpack": "^5.28.5",
 		"@types/webpack-bundle-analyzer": "^4.6.3",
@@ -83,6 +85,6 @@
 		"webpack-dev-server": "^4.15.1"
 	},
 	"dependencies": {
-		"@glidejs/glide": "^3.6.0"
+		"swiper": "^11.0.5"
 	}
 }

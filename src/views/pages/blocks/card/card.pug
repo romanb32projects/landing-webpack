@@ -1,5 +1,5 @@
 mixin card(flagInfo)
-	.group.relative
+	.group.relative.swiper-slide
 		.aspect-h-1.aspect-w-1.w-full.overflow-hidden.rounded-lg.bg-gray-200(class='lg:aspect-none group-hover:opacity-75 lg:h-96')
 			img.h-full.w-full.object-cover.object-center(
 				src=require('@/assets/images/item.png'),
@@ -12,22 +12,23 @@ mixin card(flagInfo)
 				img(src=require(`@/assets/images/card/${flagInfo.primaryFlag ? 'flag-primary' : 'flag'}.png`), alt='flag alt')
 
 				if (flagInfo.primaryFlag)
-					.absolute.left-0.bottom-0.flex.items-center.justify-center.right-1(class='-top-1')
+					.absolute.left-0.bottom-0.flex.items-center.justify-center.right-1.-top-1
 						img(src=require(`@/assets/icons/${flagInfo.primaryFlag}.svg`), alt='crown')
+
 				else if (flagInfo.index)
 					.absolute.left-0.bottom-0.flex.items-center.justify-center(class='-top-1.5 right-1.5')
-						p.font-black.text-2xl.text-white.italic #{ flagInfo.index }
+						p.font-notoSans.font-black.text-2xl.text-white.italic #{ flagInfo.index }
 
 		.absolute.inset-x-0.bottom-0
 			.mx-4
 				.mx-7
-					p.mb-2.text-xs.font-semibold.italic.text-yellow Pragmatic Play
-					p.mb-6.text-base.font-semibold.italic.text-white Sweet bonanza
+					p.font-notoSans.mb-2.text-xs.font-semibold.italic.text-yellow Pragmatic Play
+					p.font-notoSans.mb-6.text-base.font-semibold.italic.text-white Sweet bonanza
 
-				a(href='#')
+				a.no-underline(href='#')
 					+button({ text: 'Play now', wrapperClass: 'w-full' })
 
 				.text-center.py-5
-					a.text-sm.font-medium.text-grizzly(href='#')
-						span(aria-hidden='true')
+					a.text-sm.font-medium.text-grizzly.no-underline(href='#')
+						span.font-notoSans(aria-hidden='true')
 							| Read Review

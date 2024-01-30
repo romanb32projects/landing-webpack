@@ -31,7 +31,7 @@ mixin banner(containerClass)
 		]
 
 	.relative(class='md:mb-28')
-		.relative.isolate.overflow-hidden.bg-gray-900.py-20(class='lg:py-32')
+		.relative.isolate.bg-gray-900.py-20(class='lg:py-32')
 			img.absolute.inset-0.-z-10.h-full.w-full.object-cover(
 				src=require('@/assets/images/banner/banner-bg.png'),
 				alt='banner',
@@ -39,23 +39,27 @@ mixin banner(containerClass)
 			)
 
 			div(class=containerClass)
-				.mx-auto.mb-20(class='lg:mx-0 lg:mb-32')
-					h5.text-base.font-black.italic.tracking-tight.uppercase.text-white.tracking-wide(class='lg:text-2xl lg:tracking-widest') 
-						| Welcome to
-					h1.mb-5.text-5xl.font-black.uppercase(class='lg:text-9xl')
-						span.text-primary 1XBET&nbsp;
-						span.text-white jAPAN
+				.mx-auto.mb-10(class='lg:mx-0')
+					h1.font-notoSans.font-black.uppercase
+						.text-base.italic.tracking-tight.text-white.tracking-wide(class='lg:text-2xl lg:tracking-widest')
+							| Welcome to
+						.mb-5.text-5xl(class='lg:text-9xl')
+							span.text-primary 1XBET&nbsp;
+							span.text-white jAPAN
 
-					p.text-base.text-white.max-w-2xl
+					p.font-notoSans.text-base.text-white.max-w-2xl.mb-10
 						| All bookies offer a free bet or sign up offer for new customers, all you need to do to claim is click
 						| on your favourite free bet, where you will be redirected to the bookmaker's site, and then open an
 						| account with the aforementioned bookie.
 
+					a(href='#')
+						+button({ text: 'Banner button', wrapperClass: 'w-fit', textClass: 'px-8' })
+
 				.mx-auto.mb-11(class='lg:mx-0')
-					h4.mb-6.text-base.font-black.text-white.uppercase.italic(class='lg:text-2xl')
+					h4.font-notoSans.mb-6.text-base.font-black.text-white.uppercase.italic(class='lg:text-2xl')
 						| Bet on Your Favorite Sports
 
-					p.text-base.text-white.max-w-2xl(class='lg:mb-10')
+					p.font-notoSans.text-base.text-white.max-w-2xl(class='lg:mb-10')
 						| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt.
 						| Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
 						| Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
@@ -63,18 +67,19 @@ mixin banner(containerClass)
 						br
 						| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
 
-				#banner-cards.overflow-hidden(class='md:mb-28')
-					.mb-6(data-glide-el='track')
-						.flex(class='lg:grid lg:grid-rows-2 lg:gap-8 lg:grid-cols-3') 
-							each card in cards
-								+bannerCard(card)
+				.relative(class='md:mb-28')
+					.overflow-hidden.pb-11(class='lg:pb-0')
+						.banner-cards.relative.w-full.h-full
+							.swiper-wrapper(class='lg:!grid lg:grid-rows-2 lg:gap-8 lg:grid-cols-3') 
+								each card in cards
+									+bannerCard(card)
 
-							+bannerCard({ image: 'more.png', text: 'See more' })
+								+bannerCard({ image: 'more.png', text: 'See more' })
 
-					+sliderBullets(cards)
+							.swiper-pagination(class='[&>*]:mr-3 [&>*:last-child]:mr-0')
 
 		div(class='md:absolute md:inset-x-0 md:-bottom-28')
-			.relative.px-0(class="mx-auto max-w-7xl md:px-6 lg:px-8")
+			.relative.px-0.mx-auto.max-w-7xl(class='md:px-6 lg:px-8')
 				.border-hex.bg-white-standard.w-full.h-full.absolute.inset-x-0.-top-2.hidden(class='md:block')
 				.mask-hex.relative.isolate.overflow-hidden.w-full(class='md:bg-primary')
 					img.absolute.inset-0.-z-10.h-full.w-full.object-cover(
@@ -84,7 +89,7 @@ mixin banner(containerClass)
 					)
 
 					.text-white.max-w-3xl.p-6(class='md:py-12 md:px-24')
-						h5.mb-6.text-base.font-black.italic(class='md:text-2xl') Advice
-						p.text-base(class='mb-1.5 md:mb-0') 
+						h5.font-notoSans.mb-6.text-base.font-black.italic(class='md:text-2xl') Advice
+						p.font-notoSans.text-base(class='mb-1.5 md:mb-0') 
 							| Organized by me for you stream can imagine
 							| how to create a transferable promo for your business me for you stream can imagine

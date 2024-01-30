@@ -1,9 +1,9 @@
-mixin moreBlock(props)
-	- let { text, background = 'white-light', modificator = '' } = props
+mixin moreBlock(props = {})
+	- let { text, background = 'white-light', modificator = '' } = props;
 
 	.flex.items-center.cursor-pointer(class=modificator)
 		if (text)
-			span.hidden.text-sm.font-bold.italic.uppercase(class='md:inline-block md:mr-3') #{ text }
+			span.font-notoSans.hidden.text-sm.font-bold.italic.uppercase(class='md:inline-block md:mr-3') #{ text }
 
 		.more-arrow.w-6.h-6.rounded-full.flex.items-center.justify-center(class=`bg-${background}`)
 			+arrow

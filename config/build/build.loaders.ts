@@ -1,45 +1,45 @@
-import path from 'path'
+import path from 'path';
 
-import type { ModuleOptions } from 'webpack'
-import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import type { ModuleOptions } from 'webpack';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 
-import { buildBabelLoader } from './babel/build.babel.loader'
-import type { IBuildOptions } from './types'
+import { buildBabelLoader } from './babel/build.babel.loader';
+import type { IBuildOptions } from './types';
 
 export function buildLoaders({ mode, isBabel }: IBuildOptions): ModuleOptions['rules'] {
-	const isDev = mode === 'development'
+	const isDev = mode === 'development';
 
 	const assetLoader = {
 		test: /\.(png|jpg|jpeg|gif)$/i,
 		type: 'asset/resource',
 		generator: {
-			filename: path.join('images', '[name].[contenthash][ext]'),
+			filename: path.join('images', '[name][ext]'),
 		},
-	}
+	};
 
 	const fontLoader = {
 		test: /\.(woff|woff2|eot|ttf|otf)$/i,
 		type: 'asset/resource',
 		generator: {
-			filename: path.join('fonts', '[name].[contenthash][ext]'),
+			filename: path.join('fonts', '[name][ext]'),
 		},
-	}
+	};
 
 	const svgLoader = {
 		test: /\.svg$/,
 		type: 'asset/resource',
 		generator: {
-			filename: path.join('icons', '[name].[contenthash][ext]'),
+			filename: path.join('icons', '[name][ext]'),
 		},
-	}
+	};
 
 	const pugLoader = {
 		test: /\.pug$/,
 		loader: 'pug-loader',
-	}
+	};
 
-	const scssLoader = {
-		test: /\.s[ac]ss$/i,
+	const cssLoader = {
+		test: /\.css$/i,
 		use: [
 			// style-loader - внедряет CSS в DOM
 			isDev ? 'style-loader' : MiniCssExtractPlugin.loader,
@@ -47,10 +47,17 @@ export function buildLoaders({ mode, isBabel }: IBuildOptions): ModuleOptions['r
 			'css-loader',
 			// загрузчик CSS файлов для пост-обработки
 			'postcss-loader',
+		],
+	};
+
+	const scssLoader = {
+		test: /\.s[ac]ss$/i,
+		use: [
+			...cssLoader.use,
 			// 'sass-loader' - загрузчик файлов Sass/SCSS
 			'sass-loader',
 		],
-	}
+	};
 
 	const tsLoader = {
 		exclude: /node_modules/,
@@ -63,16 +70,17 @@ export function buildLoaders({ mode, isBabel }: IBuildOptions): ModuleOptions['r
 				},
 			},
 		],
-	}
+	};
 
-	const babelLoader = buildBabelLoader()
+	const babelLoader = buildBabelLoader();
 
 	return [
 		assetLoader,
 		fontLoader,
 		svgLoader,
 		pugLoader,
+		cssLoader,
 		scssLoader,
 		isBabel ? babelLoader : tsLoader,
-	]
+	];
 }

@@ -1,17 +1,17 @@
-mixin menuItem(item, classModificator = 'uppercase')
-	- let isHasChildren = Boolean(item.children && item.children.length)
+mixin menuItem(item, modificator = '')
+	- let isHasChildren = Boolean(item.children && item.children.length);
 
 	if (isHasChildren)
-		.relative.group.py-1
-			button.flex.items-center.gap-x-1.text-sm.font-bold.text-white.duration-200(
-				type='button',
+		li.dropdown.group.relative.-mx-3.pt-2(class=`xl:m-0 xl:py-1 ${modificator}`)
+			a.dropdown-toggle.sdglkjksdhbgd.font-notoSans.w-full.flex.justify-between.items-center.gap-x-1.text-base.font-semibold.text-white.duration-200.pl-3.py-2.rounded-lg(
+				href='#',
 				aria-expanded='false',
-				class=`hover:text-grizzly ${classModificator}`
+				class='pr-3.5 hover:bg-white hover:text-dark xl:hover:bg-transparent xl:hover:text-grizzly xl:font-bold xl:text-sm xl:pl-0 xl:pr-0 xl:py-0 xl:rounded-none xl:w-auto xl:uppercase'
 			)
 				| #{ item.name }
 
-				svg.h-5.w-5.flex-none.text-white.duration-200(
-					class='group-hover:text-grizzly',
+				svg.dropdown-arrow.h-5.w-5.flex-none.duration-200(
+					class='xl:group-hover:rotate-180',
 					viewbox='0 0 20 20',
 					fill='currentColor',
 					aria-hidden='true'
@@ -22,17 +22,41 @@ mixin menuItem(item, classModificator = 'uppercase')
 						clip-rule='evenodd'
 					)
 
-			.absolute.-left-2.top-full.z-10.mt-0.w-max.max-w-md.overflow-hidden.rounded-xl.bg-white.shadow-lg.ring-1.invisible(
-				class='ring-gray-900/5 group-hover:visible'
+			ul.dropdown-menu.mt-2.space-y-2.hidden(
+				class=`
+					ring-gray-900/5 
+					xl:block 
+					xl:invisible 
+					xl:group-hover:visible 
+					xl:mt-0 
+					xl:space-y-0 
+					xl:absolute 
+					xl:-left-2 
+					xl:top-full 
+					xl:z-10 
+					xl:w-max 
+					xl:max-w-md
+					xl:overflow-hidden
+					xl:rounded-xl
+					xl:bg-white
+					xl:shadow-lg
+					xl:ring-1
+					xl:p-2
+				`
 			)
-				.p-2
-					each children in item.children
-						.relative.flex.items-center.gap-x-6.rounded-lg.p-2.text-sm(class='hover:bg-white')
-							.flex-auto
-								a.block.font-bold.text-dark.duration-200(href='#', class='hover:text-dark-grizzly')
-									| #{ children.name }
-									span.absolute.inset-0
+				each children in item.children
+					li.font-notoSans.relative.flex.items-center.gap-x-6.rounded-lg.p-2.text-sm.font-semibold.text-white(
+						class='hover:bg-white hover:text-dark xl:hover:bg-transparent xl:hover:text-dark-grizzly xl:font-bold xl:rounded-none xl:text-dark'
+					)
+						a.block.no-underline.py-2.pl-6.pr-3.w-full(href='#', class='xl:p-0')
+							| #{ children.name }
 
 	else
-		a.text-sm.font-bold.text-white.py-1.duration-200(href='#', class=`hover:text-grizzly ${classModificator}`) 
-			| #{ item.name }
+		li.font-notoSans.font-semibold.text-white.-mx-3.pt-2.text-base(
+			class=`xl:py-1 xl:m-0 xl:text-sm xl:font-bold xl:uppercase ${modificator}`
+		)
+			a.no-underline.block.px-3.py-2.rounded-lg.duration-200(
+				href='#',
+				class='xl:px-0 xl:py-0 xl:inline xl:rounded-none hover:text-dark hover:bg-white xl:hover:bg-transparent xl:hover:text-grizzly'
+			) 
+				| #{ item.name }

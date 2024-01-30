@@ -54,7 +54,6 @@ include ~@/ui/mixins/star/star
 include ~@/ui/mixins/arrow/arrow
 include ~@/ui/mixins/more-block/more-block
 include ~@/ui/mixins/slider-arrows/slider-arrows
-include ~@/ui/mixins/slider-bullets/slider-bullets
 
 doctype html
 html(lang='en')
@@ -63,6 +62,11 @@ html(lang='en')
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
 		meta(property='description', content=description)
+
+		link(rel='alternate', href='http://localhost:5050/', hreflang='en')
+		link(rel='alternate', href='https://romanb32projects.github.io/landing-webpack/', hreflang='kr')
+		link(rel='alternate', href='https:/test.et/', hreflang='et')
+		link(rel='alternate', href='https:/test.oi/', hreflang='oi')
 
 		//- Page title
 		title= title
@@ -73,7 +77,7 @@ html(lang='en')
 		//- Additional head block to add here page specifically assets
 		block head
 
-	body.font-notoSans.bg-dark(class='sm:overflow-auto')
+	body.bg-dark
 		// Start header
 		+header(containerClass, menuItems)
 		// End header
@@ -84,6 +88,9 @@ html(lang='en')
 		// Start footer
 		+footer(containerClass, menuItems)
 		// End footer
+
+		// Add-ons for correct CSS tailwind generation
+		include ./additions
 
 		//- Page scripts
 		block script

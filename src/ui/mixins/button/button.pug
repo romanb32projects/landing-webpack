@@ -1,10 +1,9 @@
-mixin button({ text, icon, wrapperClass })
-	button.relative.flex.text-white.text-base.italic.font-black(type='button', aria-expanded='false', class=wrapperClass)
+mixin button({ text, icon, wrapperClass, textClass = '', id })
+	button.relative.flex.text-white.text-base.italic.font-black(type='button', aria-expanded='false', class=wrapperClass, id=id)
 		.absolute.bg-primary.w-full.h-full.rounded-lg.transform.-skew-x-12
 
 		if (text)
-			span.relative.uppercase.py-5.mx-auto #{ text }
+			span.font-notoSans.relative.uppercase.py-5.mx-auto(class=textClass) #{ text }
 		else if (icon)
-			span.absolute(class='-inset-1.5')
-			span.sr-only Icon
+			span.font-notoSans.sr-only Icon
 			img.relative.icon-button.mx-3.my-2(src=require(`@/assets/icons/${icon}`), alt='icon', width=24, height=24)

@@ -1,71 +1,73 @@
-import type { Options } from '@glidejs/glide'
-import Glide from '@glidejs/glide'
+import Swiper from 'swiper';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+import type { SwiperOptions } from 'swiper/types';
 
-// import { getDimensions } from '../get-dimensions'
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-type TSliderOptions = Partial<Options> & { isOnlyMobile?: boolean }
+type TBreakpoints = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
-export const initSlider = (containerName: string, options: TSliderOptions = {}) => {
-	const mdWidth = 768
-	const lgWidth = 1024
+export const baseBreakpoints: Record<TBreakpoints, number> = {
+	xs: 320,
+	sm: 640,
+	md: 768,
+	lg: 1024,
+	xl: 1280,
+};
 
-	const { isOnlyMobile = true, breakpoints, ...glideOptions } = options
+export const initSwiperSlider = (containerName: string, options: SwiperOptions = {}) => {
+	const { breakpoints, pagination, modules = [], ...swiperOptions } = options;
 
-	const slider = new Glide(containerName, {
-		perView: 1,
-		type: 'carousel',
-		gap: 16,
-		autoplay: 5000,
-		breakpoints: {
-			[mdWidth]: {
-				perView: 1,
+	const paginationOptions = typeof pagination === 'object' ? pagination : {};
+
+	const swiperModules = [Navigation, Pagination, Autoplay];
+	swiperModules.push(...modules);
+
+	const swiper = new Swiper(containerName, {
+		modules: swiperModules,
+		slidesPerView: 4,
+		spaceBetween: 24,
+		autoplay: {
+			delay: 5000,
+		},
+		pagination: {
+			clickable: true,
+			el: '.swiper-pagination',
+			bulletClass: 'group w-3 h-3',
+			bulletActiveClass: 'nav-active',
+			renderBullet(index, className) {
+				return `
+					<button class="${className}">
+						<span class="inline-block w-full h-full duration-200 rounded-full bg-primary-brightest hover:bg-primary group-[.nav-active]:bg-primary"></span> 
+					</button>
+				`;
 			},
-			[lgWidth]: {
-				perView: 2,
+			...paginationOptions,
+		},
+		navigation: {
+			nextEl: `.arrow-right-${containerName.replace(/[#.]/gm, '')}`,
+			prevEl: `.arrow-left-${containerName.replace(/[#.]/gm, '')}`,
+			disabledClass: 'nav-disabled',
+		},
+		breakpoints: {
+			[baseBreakpoints.xs]: {
+				slidesPerView: 1,
+			},
+			[baseBreakpoints.sm]: {
+				slidesPerView: 2,
+			},
+			[baseBreakpoints.md]: {
+				slidesPerView: 3,
+			},
+			[baseBreakpoints.xl]: {
+				slidesPerView: 4,
+				spaceBetween: 24,
 			},
 			...breakpoints,
 		},
-		classes: {
-			direction: {
-				ltr: 'glide--ltr',
-				rtl: 'glide--rtl',
-			},
-			nav: {
-				active: 'nav-active',
-			},
-			swipeable: 'glide--swipeable',
-			dragging: 'glide--dragging',
-			type: {
-				slider: 'glide--slider',
-				carousel: 'glide--carousel',
-			},
-			slide: {
-				active: 'glide__slide--active',
-				clone: 'glide__slide--clone',
-			},
-			arrow: {
-				disabled: 'glide__arrow--disabled',
-			},
-		},
-		...glideOptions,
-	})
+		...swiperOptions,
+	});
 
-	const initWidth = window.innerWidth
-
-	if (!isOnlyMobile) {
-		slider.mount()
-	} else if (initWidth <= lgWidth) {
-		slider.mount()
-	}
-
-	// getDimensions(500, () => {
-	// 	const currentWidth = window.innerWidth
-
-	// 	if (currentWidth <= lgWidth) {
-	// 		slider.mount()
-	// 	} else if (!isOnlyMobile) {
-	// 		// slider.disable()
-	// 		slider.destroy()
-	// 	}
-	// })
-}
+	return swiper;
+};

@@ -1,9 +1,11 @@
 mixin logo
 	- let logoAlt = '1xbet Japan'
 
-	a.flex.items-center.min-w-fit.h-fit(href='#')
+	a.flex.items-center.min-w-fit.h-fit.no-underline(href='#')
 		div(class='-m-1.5 p-1.5')
-			span.sr-only #{ logoAlt }
-			img.h-8.w-auto(src=require('@/assets/images/logo.png'), alt=logoAlt)
+			span.font-notoSans.sr-only #{ logoAlt }
 
-		p.text-white.uppercase.font-bold.ml-3 #{ logoAlt }
+			div(class='[&>img]:h-8 [&>img]:w-auto')
+				img(src=require('@/assets/images/logo.png'), alt=logoAlt)
+
+		p.font-notoSans.text-white.uppercase.font-bold.ml-3 #{ logoAlt }

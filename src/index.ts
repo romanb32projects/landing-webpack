@@ -1,2 +1,2 @@
-import '@/views/pages'
-import '@/styles/index.scss'
+import '@/views/pages';
+import '@/styles/index.scss';

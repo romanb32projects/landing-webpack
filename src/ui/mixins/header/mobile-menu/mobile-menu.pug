@@ -1,26 +1,38 @@
-#mobile-menu.hidden(class='lg:hidden', role='dialog', aria-modal='true')
-	.fixed.inset-0.z-10
+#mobile-menu.hidden.absolute(class='xl:hidden', role='dialog', aria-modal='true')
+	.close-menu.fixed.inset-0.z-10
 	.fixed.inset-y-0.right-0.z-10.flex.flex-col.w-full.overflow-y-auto.bg-dark.px-4.py-6(
 		class='sm:max-w-sm sm:ring-1 sm:ring-gray-900/10'
 	)
 		.flex.items-center.justify-between
-			div(class='md:hidden')
+			div(class='sm:hidden')
 				+logo
 
-			+menuItem(langItem, 'italic')
+			.dropdown.lang-switcher.relative.group.py-1
+				a.dropdown-toggle.without-responsive.flex.items-center.gap-x-1.text-sm.font-bold.text-white.duration-200.italic(
+					href='#',
+					aria-expanded='false'
+				)
+					svg.dropdown-arrow.h-5.w-5.flex-none.duration-200(viewbox='0 0 20 20', fill='currentColor', aria-hidden='true')
+						path(
+							fill-rule='evenodd',
+							d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z',
+							clip-rule='evenodd'
+						)
 
-			button#close-btn.rounded-md.text-white(type='button', class='-m-2.5 p-2.5')
-				span.sr-only Close menu
+				ul.dropdown-menu.absolute.-left-2.top-full.z-10.mt-0.w-max.max-w-md.overflow-hidden.rounded-xl.bg-white.shadow-lg.ring-1.invisible.p-2(
+					class='ring-gray-900/5'
+				)
+
+			button.close-menu.rounded-md.text-white(type='button', class='-m-2.5 p-2.5')
+				span.font-notoSans.sr-only Close menu
 				svg.h-6.w-6(fill='none', viewbox='0 0 24 24', stroke-width='1.5', stroke='currentColor', aria-hidden='true')
 					path(stroke-linecap='round', stroke-linejoin='round', d='M6 18L18 6M6 6l12 12')
 
 		.flow-root.grow
 			.flex.flex-col.h-full.justify-between
-				.space-y-2.py-6.divide-y.divide-dark-grizzly
+				ul.space-y-2.py-6.divide-y.divide-dark-grizzly
 					each item in menuItems
-						+menuItemMobile(item)
+						+menuItem(item)
 
-				a.mx-auto.flex.items-center(href='#')
-					+button({ icon: 'profile.svg' })
-
-					.block.rounded-lg.px-3.text-sm.font-bold.text-white.uppercase(class='py-2.5') Log in / Sign up
+				.mx-auto
+					+authBtn

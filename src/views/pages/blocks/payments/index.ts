@@ -1,9 +1,11 @@
-import { initSlider } from '@/utils'
+import { initSwiperSlider, baseBreakpoints } from '@/utils';
 
-initSlider(`#payments-cards`, {
+initSwiperSlider('.payments-cards', {
+	loop: true,
 	breakpoints: {
-		768: {
-			perView: 2,
+		[baseBreakpoints.xs]: {
+			slidesPerView: 2,
+			spaceBetween: 16,
 		},
 	},
-})
+});
