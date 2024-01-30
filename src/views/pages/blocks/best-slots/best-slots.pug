@@ -7,7 +7,7 @@ mixin bestSlots(containerClass)
 
 	div(class=containerClass)
 		.py-10(class='sm:py-20')
-			h2.font-notoSans.mb-11.text-base.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Best slots
+			h2.font-notoSan.mb-6.text-xl.font-black.italic.text-dark.uppercase(class='lg:text-2xl lg:mb-11') Best slots
 
 			each block, index in blocks
 				.mb-8(class='last:mb-0')
@@ -17,8 +17,8 @@ mixin bestSlots(containerClass)
 						a.text-grizzly-dark.no-underline(href='#')
 							+moreBlock({ text: 'View more' })
 
-				.relative.mb-10
-					.overflow-hidden.pb-11
+				.relative.mb-6
+					.overflow-hidden.pb-14
 						.slots-cards.relative(id=`slots-cards-${index}`)
 							.swiper-wrapper
 								each card in cards

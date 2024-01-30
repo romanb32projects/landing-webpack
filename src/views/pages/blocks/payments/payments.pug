@@ -48,7 +48,7 @@ mixin payments(containerClass)
 
 	div(class=containerClass)
 		.my-10(class='md:my-14')
-			h2.font-notoSans.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Payment Methods
+			h2.font-notoSans.text-xl.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Payment Methods
 
 			p.font-notoSans.max-w-3xl.text-base.mb-6(class='lg:mb-11')
 				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
@@ -103,7 +103,7 @@ mixin payments(containerClass)
 											span.text-green-500.inline-block.ml-3 0%
 
 			.relative(class='md:hidden')
-				.overflow-hidden.pb-11
+				.overflow-hidden.pb-14
 					.payments-cards.relative
 						.swiper-wrapper
 							each payment in payments
