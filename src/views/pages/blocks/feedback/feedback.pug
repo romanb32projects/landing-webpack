@@ -2,42 +2,43 @@ mixin feedback(containerClass)
 	.relative.isolate.overflow-hidden.bg-gray-900.py-16(class='sm:py-24 lg:py-32')
 		img.absolute.inset-0.-z-10.h-full.w-full.object-cover(
 			src=require('@/assets/images/feedback-bg.png'),
-			alt='banner',
+			alt='feedback',
 			class='md:object-center'
 		)
 		div(class=containerClass)
-			h2.text-base.font-black.italic.text-white.uppercase.mb-6(class='md:text-2xl') Leave a feedback
+			h2.font-notoSans.text-base.font-black.italic.text-white.uppercase.mb-6(class='md:text-2xl') Leave a feedback
 
-			.grid.grid-cols-1.gap-y-4(class='sm:grid-cols-10 sm:gap-y-8 sm:gap-x-6')
-				.col-span-full
-					textarea#comment.block.w-full.rounded-lg.border-0.text-dark.shadow-sm.ring-1.ring-inset.ring-grizzly.p-6.text-sm(
-						name='comment',
-						rows='3',
-						class='placeholder:text-grizzly focus:ring-2 focus:ring-inset focus:ring-primary',
-						placeholder='Start writing...'
-					)
-				.col-span-3.col-start-1
-					input#name.block.w-full.rounded-lg.border-0.text-dark.shadow-sm.ring-1.ring-inset.ring-grizzly.p-6.text-sm(
-						type='text',
-						name='name',
-						class='placeholder:text-grizzly focus:ring-2 focus:ring-inset focus:ring-primary',
-						placeholder='Enter your name'
-					)
-				.col-span-3
-					input#email.block.w-full.rounded-lg.border-0.text-dark.shadow-sm.ring-1.ring-inset.ring-grizzly.p-6.text-sm(
-						type='email',
-						name='email',
-						autocomplete='email',
-						class='placeholder:text-grizzly focus:ring-2 focus:ring-inset focus:ring-primary',
-						placeholder='Enter your email'
-					)
-				.col-span-2
-					.h-full.flex.items-center.justify-around
-						each item in [1, 2, 3, 4, 5]
-							.comment-star.text-center.cursor-pointer.bg-white-opacity.py-3.px-4.rounded-lg(class='sm:p-0 sm:bg-transparent')
-								.star.text-grizzly.mb-2
-									+star(24, 24)
-								span.text-white.text-base.font-normal #{ item }
+			form
+				.grid.grid-cols-1.gap-y-4(class='sm:grid-cols-10 sm:gap-y-8 sm:gap-x-6')
+					.col-span-full
+						textarea#comment.font-notoSans.block.w-full.rounded-lg.border-0.text-dark.shadow-sm.ring-1.ring-inset.ring-grizzly.p-6.text-sm(
+							name='comment',
+							rows='3',
+							class='placeholder:text-grizzly focus:ring-2 focus:ring-inset focus:ring-primary',
+							placeholder='Start writing...'
+						)
+					.col-span-3.col-start-1
+						input#name.font-notoSans.block.w-full.rounded-lg.border-0.text-dark.shadow-sm.ring-1.ring-inset.ring-grizzly.p-6.text-sm(
+							type='text',
+							name='name',
+							class='placeholder:text-grizzly focus:ring-2 focus:ring-inset focus:ring-primary',
+							placeholder='Enter your name'
+						)
+					.col-span-3
+						input#email.font-notoSans.block.w-full.rounded-lg.border-0.text-dark.shadow-sm.ring-1.ring-inset.ring-grizzly.p-6.text-sm(
+							type='email',
+							name='email',
+							autocomplete='email',
+							class='placeholder:text-grizzly focus:ring-2 focus:ring-inset focus:ring-primary',
+							placeholder='Enter your email'
+						)
+					.col-span-2
+						.h-full.flex.items-center.justify-around
+							each item in [1, 2, 3, 4, 5]
+								.comment-star.text-center.cursor-pointer.bg-white-opacity.py-3.px-4.rounded-lg(class='sm:p-0 sm:bg-transparent')
+									.star.text-grizzly.mb-2
+										+star(24, 24)
+									span.font-notoSans.text-white.text-base.font-normal #{ item }
 
-				.col-span-2
-					+button({ text: 'Send', wrapperClass: 'w-full' })
+					.col-span-2
+						+button({ text: 'Send', wrapperClass: 'w-full' })

@@ -1,6 +1,6 @@
-import type { Configuration as DevServerConfiguration } from 'webpack-dev-server'
+import type { Configuration as DevServerConfiguration } from 'webpack-dev-server';
 
-import type { IBuildOptions } from './types'
+import type { IBuildOptions } from './types';
 
 export function buildDevServer({ port, paths }: IBuildOptions): DevServerConfiguration {
 	return {
@@ -14,5 +14,5 @@ export function buildDevServer({ port, paths }: IBuildOptions): DevServerConfigu
 				usePolling: true,
 			},
 		},
-	}
+	};
 }

@@ -1,7 +1,6 @@
 //- Local variables
 -
-	let mobileContainerClass = 'px-4'
-	let containerClass = `mx-auto max-w-7xl ${mobileContainerClass} sm:px-6 lg:px-8`
+	let containerClass = `mx-auto max-w-7xl px-4 sm:px-6 lg:px-8`
 	let menuItems = [
 		{ 
 	    	name: 'Betting sites' 
@@ -55,7 +54,6 @@ include ~@/ui/mixins/star/star
 include ~@/ui/mixins/arrow/arrow
 include ~@/ui/mixins/more-block/more-block
 include ~@/ui/mixins/slider-arrows/slider-arrows
-include ~@/ui/mixins/slider-bullets/slider-bullets
 
 doctype html
 html(lang='en')
@@ -64,6 +62,11 @@ html(lang='en')
 		meta(charset='utf-8')
 		meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
 		meta(property='description', content=description)
+
+		link(rel='alternate', href='http://localhost:5050/', hreflang='en')
+		link(rel='alternate', href='https://romanb32projects.github.io/landing-webpack/', hreflang='kr')
+		link(rel='alternate', href='https:/test.et/', hreflang='et')
+		link(rel='alternate', href='https:/test.oi/', hreflang='oi')
 
 		//- Page title
 		title= title
@@ -74,13 +77,20 @@ html(lang='en')
 		//- Additional head block to add here page specifically assets
 		block head
 
-	body.font-notoSans.bg-dark
+	body.bg-dark
+		// Start header
 		+header(containerClass, menuItems)
+		// End header
 
 		.pt-20.bg-white-standard
 			block main
 
+		// Start footer
 		+footer(containerClass, menuItems)
+		// End footer
+
+		// Add-ons for correct CSS tailwind generation
+		include ./additions
 
 		//- Page scripts
 		block script

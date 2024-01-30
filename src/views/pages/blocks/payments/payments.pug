@@ -47,10 +47,10 @@ mixin payments(containerClass)
 		]
 
 	div(class=containerClass)
-		.my-10.overflow-hidden(class='md:my-14')
-			h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Payment Methods
+		.my-10(class='md:my-14')
+			h2.font-notoSans.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Payment Methods
 
-			p.max-w-3xl.text-base.mb-6(class='lg:mb-11')
+			p.font-notoSans.max-w-3xl.text-base.mb-6(class='lg:mb-11')
 				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
 				br
 				br
@@ -61,16 +61,16 @@ mixin payments(containerClass)
 					thead.text-sm.text-grizzly.font-medium
 						tr
 							each col in cols
-								th.px-3.py-2(scope='col')
+								th.px-3.py-2.font-notoSans(scope='col')
 									| #{ col }
 					tbody
 						each payment in payments
 							tr.font-semibold.italic.text-dark.text-lg(class='[&:nth-child(odd)>*]:bg-primary-brightest')
 								th.px-3.py-6.whitespace-nowrap.flex.items-center.rounded-l-lg(scope='row')
 									img.mr-3(src=require(`@/assets/icons/payments/${payment.icon}.svg`), alt=payment.icon)
-									span #{ payment.name }
+									span.font-notoSans #{ payment.name }
 
-								td.px-3.py-6
+								td.px-3.py-6.font-notoSans
 									if (payment.min)
 										| #{ payment.min }
 									else
@@ -78,7 +78,7 @@ mixin payments(containerClass)
 											span No Limits
 											img.ml-3(src=require('@/assets/icons/payments/infinity.svg'), alt='No Limits')
 
-								td.px-3.py-6
+								td.px-3.py-6.font-notoSans
 									if (payment.max)
 										| #{ payment.max }
 									else
@@ -86,7 +86,7 @@ mixin payments(containerClass)
 											span No Limits
 											img.ml-3(src=require('@/assets/icons/payments/infinity.svg'), alt='No Limits')
 
-								td.px-3.py-6
+								td.px-3.py-6.font-notoSans
 									if (payment.time)
 										| #{ payment.time }
 									else
@@ -94,7 +94,7 @@ mixin payments(containerClass)
 											span Instant
 											img.ml-3(src=require('@/assets/icons/payments/flash.svg'), alt='Instant')
 
-								td.px-3.py-6.rounded-r-lg
+								td.px-3.py-6.rounded-r-lg.font-notoSans
 									if (payment.free)
 										| #{ payment.free }
 									else
@@ -102,10 +102,11 @@ mixin payments(containerClass)
 											span No Fees
 											span.text-green-500.inline-block.ml-3 0%
 
-			#payments-cards(class='md:hidden')
-				.mb-6(data-glide-el='track')
-					.flex
-						each payment in payments
-							+paymentCard(payment)
+			.relative(class='md:hidden')
+				.overflow-hidden.pb-11
+					.payments-cards.relative
+						.swiper-wrapper
+							each payment in payments
+								+paymentCard(payment)
 
-				+sliderBullets(payments)
+						.swiper-pagination(class='[&>*]:mr-3 [&>*:last-child]:mr-0')

@@ -1,11 +1,13 @@
 export const initCloseBtn = () => {
-	const closeBtn = document.querySelector('#close-btn')
-	const mobileMenu = document.querySelector('#mobile-menu')
+	const closeElements = document.querySelectorAll<HTMLDivElement>('.close-menu');
+	const mobileMenu = document.querySelector<HTMLDivElement>('#mobile-menu');
 
-	closeBtn.addEventListener('click', () => {
-		mobileMenu?.classList.toggle('hidden')
-		document.body.classList.toggle('overflow-hidden')
-	})
-}
+	closeElements.forEach((el) => {
+		el.addEventListener('click', () => {
+			mobileMenu?.classList.toggle('hidden');
+			document.body.classList.toggle('sm:overflow-hidden');
+		});
+	});
+};
 
-initCloseBtn()
+initCloseBtn();

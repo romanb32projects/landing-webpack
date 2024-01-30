@@ -3,24 +3,27 @@ include ../card/card
 mixin bestSlots(containerClass)
 	-
 		let blocks = ['Pragmatic Play', 'Pragmatic Play', 'Pragmatic Play']
-		let cards = [1, 2, 3, 4]
+		let cards = [1, 2, 3, 4, 5, 6]
 
 	div(class=containerClass)
-		.py-10.overflow-hidden(class='sm:py-20')
-			h2.mb-11.text-base.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Best slots
+		.py-10(class='sm:py-20')
+			h2.font-notoSans.mb-11.text-base.font-black.italic.text-dark.uppercase(class='lg:text-2xl') Best slots
 
 			each block, index in blocks
 				.mb-8(class='last:mb-0')
 					.flex.justify-between.items-center.mb-8
-						p.italic.text-lg.font-semibold #{ block }
+						p.font-notoSans.italic.text-lg.font-semibold #{ block }
 
-						.text-grizzly-dark
+						a.text-grizzly-dark.no-underline(href='#')
 							+moreBlock({ text: 'View more' })
 
-				.mb-10(id=`slots-cards-${index}`)
-					.mb-6(data-glide-el='track')
-						.flex(class='lg:grid lg:grid-cols-4 lg:gap-x-6')
-							each card in cards
-								+card
+				.relative.mb-10
+					.overflow-hidden.pb-11
+						.slots-cards.relative(id=`slots-cards-${index}`)
+							.swiper-wrapper
+								each card in cards
+									+card
 
-					+sliderBullets(cards)
+							.swiper-pagination(class='[&>*]:mr-3 [&>*:last-child]:mr-0')
+
+					+sliderArrows(`slots-cards-${index}`, 'top-48')

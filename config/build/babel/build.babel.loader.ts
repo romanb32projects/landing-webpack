@@ -8,5 +8,5 @@ export function buildBabelLoader() {
 				presets: ['@babel/preset-env', '@babel/preset-typescript'],
 			},
 		},
-	}
+	};
 }

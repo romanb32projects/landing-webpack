@@ -1,15 +1,19 @@
-import { initSlider } from '@/utils'
+import { initSwiperSlider, baseBreakpoints } from '@/utils';
 
-initSlider('#advantages-cards', {
+initSwiperSlider('.advantages-cards', {
+	loop: true,
 	breakpoints: {
-		576: {
-			perView: 1,
+		[baseBreakpoints.xs]: {
+			slidesPerView: 1,
 		},
-		768: {
-			perView: 2,
+		[baseBreakpoints.sm]: {
+			slidesPerView: 3,
 		},
-		1024: {
-			perView: 3,
+		[baseBreakpoints.md]: {
+			slidesPerView: 4,
+		},
+		[baseBreakpoints.xl]: {
+			slidesPerView: 5,
 		},
 	},
-})
+});

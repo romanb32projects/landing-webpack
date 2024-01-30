@@ -1,21 +1,37 @@
 mixin interface(containerClass)
-	- let images = ['image1.png', 'image2.png', 'image3.png']
+	- let images = ['image1.png', 'image2.png', 'image3.png', 'feedback-bg.png'];
 
 	div(class=containerClass)
 		.my-10(class='md:my-14')
-			h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') System interface
+			h2.font-notoSans.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') System interface
 
-			p.max-w-3xl.text-base.mb-6(class='md:mb-11')
+			p.font-notoSans.max-w-3xl.text-base.mb-6(class='md:mb-11')
 				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
 				br
 				br
 				| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
 
-			#interface-cards.relative
-				.mb-6.overflow-hidden(data-glide-el='track')
-					.flex
-						each image in images
-							img.h-64.rounded-lg(src=require(`@/assets/images/interface/${image}`), alt=image)
+			.relative.mb-6
+				.overflow-hidden.pb-11
+					.interface-cards.relative.h-64
+						.swiper-wrapper
+							each image in images
+								img.swiper-slide.slide-image.h-full.object-cover.rounded-lg(
+									src=require(`@/assets/images/interface/${image}`),
+									alt=image
+								)
 
-				+sliderArrows
-				+sliderBullets(images, false)
+						.swiper-pagination(class='[&>*]:mr-3 [&>*:last-child]:mr-0')
+
+				+sliderArrows('interface-cards', 'top-32')
+
+		#light-modal.fixed.inset-0.z-50.hidden.w-screen.h-screen.flex.justify-center.items-center
+			.light-modal-close.fixed.inset-0(class='bg-black/70')
+
+			button.light-modal-close.rounded-md.text-white.fixed.z-90.top-8.right-8(type='button')
+				span.font-notoSans.sr-only Close modal
+				svg.h-6.w-6(fill='none', viewbox='0 0 24 24', stroke-width='1.5', stroke='currentColor', aria-hidden='true')
+					path(stroke-linecap='round', stroke-linejoin='round', d='M6 18L18 6M6 6l12 12')
+
+			div(class=containerClass)
+				img#light-modal-img.relative.max-w-full.object-cover.rounded-lg(class='lg:max-w-[800px] max-h-[600px]')

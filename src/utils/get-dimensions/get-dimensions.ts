@@ -1,14 +1,14 @@
 export const getDimensions = (delay: number, cb: () => void) => {
-	let throttled = false
+	let throttled = false;
 
 	window.addEventListener('resize', function () {
 		if (!throttled) {
-			cb()
+			cb();
 
-			throttled = true
+			throttled = true;
 			setTimeout(function () {
-				throttled = false
-			}, delay)
+				throttled = false;
+			}, delay);
 		}
-	})
-}
+	});
+};

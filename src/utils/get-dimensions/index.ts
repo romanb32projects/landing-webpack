@@ -1,1 +1,1 @@
-export * from './get-dimensions'
+export * from './get-dimensions';

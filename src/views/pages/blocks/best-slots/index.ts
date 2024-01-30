@@ -1,5 +1,11 @@
-import { initSlider } from '@/utils'
+import { initSwiperSlider } from '@/utils';
 
-for (let i = 0; i < 3; i++) {
-	initSlider(`#slots-cards-${i}`)
-}
+const sliders = document.querySelectorAll<HTMLDivElement>('.slots-cards');
+
+sliders.forEach(({ id }) => {
+	if (id) {
+		initSwiperSlider(`#${id}`, {
+			loop: true,
+		});
+	}
+});

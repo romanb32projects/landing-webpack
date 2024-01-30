@@ -1,21 +1,57 @@
 nav.relative.flex.h-20.items-center.justify-between
 	.flex.flex-1.items-center.justify-between
-		.flex.items-center(class='lg:flex-1')
+		.flex.items-center(class='xl:flex-1')
 			+logo
 
-		.flex(class='lg:hidden')
+		.flex(class='xl:hidden')
 			+hamburgerBtn
 
-		.hidden(class='lg:flex lg:gap-x-5')
+		ul.hidden(class='xl:flex xl:gap-x-5')
 			each item in menuItems
 				+menuItem(item)
 
-			+menuItem(langItem)
+			//- +menuItem(langItem, 'lang-switcher')
 
-		.hidden(class='lg:flex lg:flex-1 lg:justify-end')
-			.absolute.inset-y-0.right-0.flex.items-center.pr-2(class='sm:static sm:inset-auto sm:pr-0')
-				+button({ icon: 'profile.svg' })
+			li.dropdown.group.relative.-mx-3.pt-2.lang-switcher(class='xl:m-0 xl:py-1')
+				a.dropdown-toggle.sdglkjksdhbgd.font-notoSans.w-full.flex.justify-between.items-center.gap-x-1.text-base.font-semibold.text-white.duration-200.pl-3.py-2.rounded-lg(
+					href='#',
+					aria-expanded='false',
+					class='pr-3.5 hover:bg-white hover:text-dark xl:hover:bg-transparent xl:hover:text-grizzly xl:font-bold xl:text-sm xl:pl-0 xl:pr-0 xl:py-0 xl:rounded-none xl:w-auto xl:uppercase'
+				)
+					svg.dropdown-arrow.h-5.w-5.flex-none.duration-200(
+						class='xl:group-hover:rotate-180',
+						viewbox='0 0 20 20',
+						fill='currentColor',
+						aria-hidden='true'
+					)
+						path(
+							fill-rule='evenodd',
+							d='M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z',
+							clip-rule='evenodd'
+						)
 
-				.relative.ml-3.hidden(class='lg:flex lg:flex-1 lg:justify-end')
-					a.text-sm.font-bold.text-white.uppercase(href='#')
-						| Log in / Sign up
+				ul.dropdown-menu.mt-2.space-y-2.hidden(
+					class=`
+						ring-gray-900/5 
+						xl:block 
+						xl:invisible 
+						xl:group-hover:visible 
+						xl:mt-0 
+						xl:space-y-0 
+						xl:absolute 
+						xl:-left-2 
+						xl:top-full 
+						xl:z-10 
+						xl:w-max 
+						xl:max-w-md
+						xl:overflow-hidden
+						xl:rounded-xl
+						xl:bg-white
+						xl:shadow-lg
+						xl:ring-1
+						xl:p-2
+					`
+				)
+
+		.hidden(class='xl:flex xl:flex-1 xl:justify-end')
+			+authBtn

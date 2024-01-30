@@ -10,13 +10,13 @@ mixin subscribe(containerClass)
 
 		div(class=containerClass)
 			.max-w-xl.mx-auto(class='lg:max-w-lg')
-				h2.mb-6.text-base.font-black.tracking-tight.text-white.italic.uppercase(class='lg:text-2xl') Want the latest news?
-				p.mb-6.text-base.text-white(class='lg:mb-11')
+				h2.font-notoSans.mb-6.text-base.font-black.tracking-tight.text-white.italic.uppercase(class='lg:text-2xl') Want the latest news?
+				p.font-notoSans.mb-6.text-base.text-white(class='lg:mb-11')
 					| Get exclusive betting news and the latest odds from top-rated sportsbooks, straight to your inbox and social feeds.
 
-				.flex.flex-col.relative.mb-8(class='lg:flex-row')
-					label.sr-only(for='email-address') Email address
-					input#email-address.min-w-0.flex-auto.rounded-lg.border-0.py-5.text-dark.shadow-sm.ring-1.ring-inset.ring-gray-300(
+				form#subscribe-form.flex.flex-col.relative.mb-8(class='lg:flex-row')
+					label.font-notoSans.sr-only(for='subscribe-email-address') Email address
+					input#subscribe-email-address.font-notoSans.min-w-0.flex-auto.rounded-lg.border-0.py-5.text-dark.shadow-sm.ring-1.ring-inset.ring-gray-300(
 						name='email',
 						type='email',
 						autocomplete='email',
@@ -26,9 +26,10 @@ mixin subscribe(containerClass)
 					)
 
 					.mt-8(class='lg:w-2/4 lg:absolute lg:-right-3 lg:mt-0')
-						+button({ text: 'Subscribe', wrapperClass: 'w-full' })
+						+button({ text: 'Subscribe', wrapperClass: 'w-full', id: "subscribe-btn" })
 
-				.flex.mx-auto.w-fit.gap-x-10
+				ul.flex.mx-auto.w-fit.gap-x-10
 					each icon in icons
-						a.bg-white.h-10.w-10.rounded-full.flex.justify-center.items-center(href='#')
-							img(src=require(`@/assets/icons/subscribe/${icon}.svg`), alt=icon)
+						li.bg-white.h-10.w-10.rounded-full.flex.justify-center.items-center
+							a.no-underline(href='#')
+								img(src=require(`@/assets/icons/subscribe/${icon}.svg`), alt=icon)

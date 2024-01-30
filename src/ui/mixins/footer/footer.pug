@@ -9,7 +9,7 @@ mixin footer(containerClass, menuItems = [])
 						+hamburgerBtn
 
 				.my-6.basis-full(class='lg:my-0')
-					p.text-grizzly.text-sm
+					p.font-notoSans.text-grizzly.text-sm
 						| The contents of the website is owned and operated by ACOM Latin America N.V. as a License Holder
 						| (Curacao license No. 1668/JAZ). Exidna Enterprises LTD (НЕ435756) and Kassifoni Enterprises LTD
 						| (НЕ435760)provide processing services on the website as Billing Agents. All rights reserved and
@@ -17,10 +17,11 @@ mixin footer(containerClass, menuItems = [])
 
 			.divide-y.divide-dark-grizzly
 				if menuItems.length
-					.flex.flex-1.justify-between.items-center.mb-6.mt-11.hidden(class='md:flex')
+					ul.flex.flex-1.justify-between.items-center.mb-6.mt-11.hidden(class='md:flex')
 						each item in menuItems
-							a.text-sm.font-bold.text-grizzly.uppercase.duration-200(href='#', class='hover:text-white')
-								| #{ item.name }
+							li.font-notoSans.text-sm.font-bold.uppercase
+								a.text-grizzly.no-underline.duration-200(href='#', class='hover:text-white')
+									| #{ item.name }
 
-				p.text-sm.text-grizzly.text-center.pt-6
+				p.font-notoSans.text-sm.text-grizzly.text-center.pt-6
 					| 2020 © BETZILLION. All Rights Reserved

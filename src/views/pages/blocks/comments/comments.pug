@@ -8,20 +8,20 @@ mixin comments(containerClass)
 
 	div(class=containerClass)
 		.my-10(class='md:mt-14 md:mb-28')
-			h2.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Comments
+			h2.font-notoSans.text-base.font-black.italic.text-dark.uppercase.mb-6(class='md:text-2xl') Comments
 
-			p.max-w-3xl.text-base.mb-6(class='md:mb-11')
+			p.font-notoSans.max-w-3xl.text-base.mb-6(class='md:mb-11')
 				| Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut urna ipsum sagittis auctor vitae. Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu. Vulputate duis sit augue vel tristique ac. Molestie id gravida dolor pretium fermentum pharetra ut.
 				br
 				br
 				| Facilisi urna, arcu a tincidunt. Molestie pulvinar mauris, est quis venenatis sed eu. Urna in nullam amet mi eu.
 
 			.mb-6
-				each item in [comment, comment, comment, comment, comment, comment]
+				each item in [comment, comment, comment, comment]
 					.p-4.rounded-lg(class='[&:nth-child(even)]:bg-primary-brightest sm:py-8 sm:px-6')
 						.flex.flex-col.mb-6(class='sm:items-center sm:justify-between sm:flex-row')
 							.mb-2.flex.items-center(class='sm:mb-0')
-								.font-semibold.italic.text-lg #{ comment.name }
+								.font-notoSans.font-semibold.italic.text-lg #{ comment.name }
 
 								.ml-4.flex.gap-x-1
 									.text-yellow.flex.gap-x-1
@@ -33,11 +33,11 @@ mixin comments(containerClass)
 										+star
 										+star
 
-							p.text-grizzly.font-medium.text-sm
+							p.font-notoSans.text-grizzly.font-medium.text-sm
 								| #{ item.createdAt }
 
-						.text-base.font-normal
+						.font-notoSans.text-base.font-normal
 							| #{ item.text }
 
 			.text-center.text-primary.font-black.text-base.italic.uppercase
-				span.cursor-pointer Show 5 more feedbacks
+				span.font-notoSans.cursor-pointer Show 5 more feedbacks
